@@ -1,3 +1,3 @@
-# fastify benchmarks
+# Fastify benchmarks
 
 - Todo: Improve Readme
