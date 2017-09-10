@@ -23,18 +23,28 @@ const doBench = handler => {
     const spinner = ora(`Started ${handler}`).start()
     const forked = fork(`${globalModules}/fastify-benchmarks/benchmarks/${handler}`)
     setTimeout(function () {
-      spinner.color = 'yellow'
-      spinner.text = `Working ${handler}`
+      spinner.color = 'magenta'
+      spinner.text = `Warming ${handler}`
     }, 500)
     exec(`node ${globalModules}/fastify-benchmarks/node_modules/autocannon -c 100 -d 5 -p 10 localhost:3000`, (err, stdout, stderr) => {
       if (err) {
         console.error(`exec error: ${err}`)
         reject(err)
       }
-      forked.kill('SIGINT')
-      spinner.text = `Results for ${handler}`
-      spinner.succeed()
-      resolve(stderr)
+      setTimeout(function () {
+        spinner.color = 'yellow'
+        spinner.text = `Working ${handler}`
+      }, 500)
+      exec(`node ${globalModules}/fastify-benchmarks/node_modules/autocannon -c 100 -d 5 -p 10 localhost:3000`, (err, stdout, stderr) => {
+        if (err) {
+          console.error(`exec error: ${err}`)
+          reject(err)
+        }
+        forked.kill('SIGINT')
+        spinner.text = `Results for ${handler}`
+        spinner.succeed()
+        resolve(stderr)
+      })
     })
   })
 }
