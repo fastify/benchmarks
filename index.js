@@ -3,7 +3,20 @@ const { exec, fork } = require('child_process')
 const ora = require('ora')
 const globalModules = require('global-modules')
 
-let list = ['bare', 'express-route-prefix', 'express-with-middlewares', 'express', 'hapi', 'koa-router', 'koa', 'restify', 'take-five', 'fastify']
+let list = [
+  'bare',
+  'connect',
+  'connect-router',
+  'express-route-prefix',
+  'express-with-middlewares',
+  'express',
+  'hapi',
+  'koa-router',
+  'koa',
+  'restify',
+  'take-five',
+  'fastify'
+]
 
 const doBench = handler => {
   return new Promise((resolve, reject) => {
