@@ -3,7 +3,11 @@
 const Hapi = require('hapi')
 
 // Create a server with a host and port
-const server = new Hapi.Server()
+const server = new Hapi.Server({
+  connections: {
+    compression: false
+  }
+})
 server.connection({
   host: 'localhost',
   port: 3000
@@ -13,6 +17,12 @@ server.connection({
 server.route({
   method: 'GET',
   path: '/',
+  config: {
+    cache: false,
+    response: {
+      ranges: false
+    }
+  },
   handler: function (request, reply) {
     return reply({ hello: 'world' })
   }

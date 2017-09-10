@@ -5,7 +5,7 @@ var router = require('koa-router')()
 var app = new Koa()
 
 router.get('/', async (ctx) => {
-  ctx.body = JSON.stringify({ hello: 'world' })
+  ctx.body = { hello: 'world' }
 })
 
 app
