@@ -5,6 +5,7 @@ var router = require('router')()
 var app = connect()
 
 router.get('/', function (req, res) {
+  res.setHeader('Content-Type', 'application/json')
   res.end(JSON.stringify({ hello: 'world' }))
 })
 
