@@ -12,7 +12,10 @@
   "repository": "https://github.com/cagataycali/fastify-benchmarks",
   "author": "Çağatay Çalı",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "global-modules": "^1.0.0",
+    "ora": "^1.3.0",
     "autocannon": "^0.16.5",
     "connect": "^3.6.3",
     "cors": "^2.8.4",
@@ -30,10 +33,5 @@
     "router": "^1.3.1",
     "take-five": "^1.3.4",
     "x-xss-protection": "^1.0.0"
-  },
-  "dependencies": {
-    "chalk": "^2.1.0",
-    "global-modules": "^1.0.0",
-    "ora": "^1.3.0"
   }
 }
