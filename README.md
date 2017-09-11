@@ -33,7 +33,7 @@ benchmark # Hit [ENTER]
 
 __Machine:__ MacBook Pro (Retina, 13-inch, Early 2015) **Processor**: 2,7 GHz Intel Core i5 **Memory**: 8 GB 1867 MHz DDR3
 
-__Method:__: `autocannon -c 10 -d 2 -p 1 localhost:3000` * 2, taking the second average
+__Method:__ `autocannon -c 10 -d 2 -p 1 localhost:3000` * 2, taking the second average
 
 
 [![asciicast](https://asciinema.org/a/SA9z6g2HjOr0n80KwEvUaWoSS.png)](https://asciinema.org/a/SA9z6g2HjOr0n80KwEvUaWoSS)
