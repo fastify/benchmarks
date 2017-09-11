@@ -26,7 +26,7 @@ npm i -g fastify-benchmarks
 # Usage
 
 ```
-benchmark # Hit [ENTER] # todo :@cagataycali details.
+benchmark # Hit [ENTER]
 ```
 
 # Benchmarks
