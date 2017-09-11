@@ -40,12 +40,10 @@ if (choices.length === 0) {
     }]).then(function (secondChoice) {
       let [a, b] = [firstChoice.choice, secondChoice.choice]
       let result = compare(a, b)
-      if (result.equal) {
+      if (result === true) {
         console.log(chalk.green.bold(`${a} and ${b} both are fast!`))
-      } else if (result.aWins) {
-        console.log(chalk.blue(`Both are awesome but`), chalk.green.bold(a), chalk.underline.blue(`is faster than`), chalk.bold.yellow(b))
       } else {
-        console.log(chalk.blue(`Both are awesome but`), chalk.bold.green(b), chalk.underline.blue(`is faster than`), chalk.bold.yellow(a))
+        console.log(chalk.blue(`Both are awesome but`), chalk.bold.green(result.fastest), chalk.blue(`is`), chalk.red(result.diff), chalk.blue(`faster than`), chalk.bold.yellow(result.slowest))
       }
     })
   })
