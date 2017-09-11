@@ -12,7 +12,7 @@
 </div>
 <br />
 
-# tl;dr
+# TL;DR
 
 * [Fastify](https://github.com/fastify/fastify) is, fast and low overhead web framework for Node.js
 * This package shows how fast it is comparatively.
