@@ -12,23 +12,28 @@
 </div>
 <br />
 
-**tl;dr**
+# tl;dr
 
 * [Fastify](https://github.com/fastify/fastify) is, fast and low overhead web framework for Node.js
 * This package shows how fast it is comparatively.
 
-**Installing**
+# Installing
 
 ```
 npm i -g fastify-benchmarks
 ```
 
-**Usage**
+# Usage
 
 ```
-fastify-benchmark # Hit [ENTER]
+benchmark # Hit [ENTER] # todo :@cagataycali details.
 ```
 
-**Result**
+# Benchmarks
 
-[![asciicast](https://asciinema.org/a/46IUKnw4FlVoU9b4QZraZxKwa.png)](https://asciinema.org/a/46IUKnw4FlVoU9b4QZraZxKwa)
+__Machine:__ MacBook Pro (Retina, 13-inch, Early 2015) **Processor**: 2,7 GHz Intel Core i5 **Memory**: 8 GB 1867 MHz DDR3
+
+__Method:__: `autocannon -c 10 -d 2 -p 1 localhost:3000` * 2, taking the second average
+
+
+[![asciicast](https://asciinema.org/a/SA9z6g2HjOr0n80KwEvUaWoSS.png)](https://asciinema.org/a/SA9z6g2HjOr0n80KwEvUaWoSS)
