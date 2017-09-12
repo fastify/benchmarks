@@ -1,6 +1,6 @@
 {
   "name": "fastify-benchmarks",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Fast and low overhead web framework called fastify benchmarks.",
   "main": "index.js",
   "scripts": {
