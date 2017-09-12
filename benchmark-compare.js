@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const { existsSync } = require('fs')
-const globalModules = require('global-modules')
 const inquirer = require('inquirer')
 const { compare } = require('./lib/autocannon')
+const path = require('path')
 const chalk = require('chalk')
 
 let choices = [
@@ -20,7 +20,8 @@ let choices = [
   'fastify'
 ]
 
-choices = choices.filter(choice => existsSync(`${globalModules}/fastify-benchmarks/results/${choice}.json`))
+const resultsDirectory = path.join(process.cwd(), 'results')
+choices = choices.filter(choice => existsSync(path.join(resultsDirectory, `${choice}.json`)))
 
 if (choices.length === 0) {
   console.log(chalk.red(`Run benchmark first to gather results to compare`))
