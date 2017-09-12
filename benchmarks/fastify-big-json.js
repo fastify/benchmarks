@@ -1,6 +1,6 @@
 'use strict'
 
-const fastify = require('..')()
+const fastify = require('fastify')()
 
 const opts = {
   schema: {
