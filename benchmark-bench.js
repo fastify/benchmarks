@@ -9,10 +9,16 @@ inquirer.prompt([{
   default: false
 }])
 .then(ans => {
+  // TODO make these configurable
+  const opts = {
+    connection: 100,
+    pipelining: 10,
+    duration: 5
+  }
   if (!ans.all) {
-    select(list => bench(list))
+    select(list => bench(opts, list))
   } else {
-    bench([
+    bench(opts, [
       'bare',
       'connect',
       'connect-router',
