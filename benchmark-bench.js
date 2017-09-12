@@ -2,19 +2,53 @@
 const inquirer = require('inquirer')
 const bench = require('./lib/bench')
 
-inquirer.prompt([{
-  type: 'confirm',
-  name: 'all',
-  message: 'Do you want to run all benchmark tests?',
-  default: false
-}])
-.then(ans => {
-  // TODO make these configurable
-  const opts = {
-    connection: 100,
-    pipelining: 10,
-    duration: 5
+inquirer.prompt([
+  {
+    type: 'confirm',
+    name: 'all',
+    message: 'Do you want to run all benchmark tests?',
+    default: false
+  },
+  {
+    type: 'input',
+    name: 'connection',
+    message: 'How many connection you need?',
+    default: 100,
+    validate: function (value) {
+      var valid = !isNaN(parseFloat(value))
+      return valid || 'Please enter a number'
+    },
+    filter: Number
+  },
+  {
+    type: 'input',
+    name: 'pipelining',
+    message: 'How many pipelining you need?',
+    default: 10,
+    validate: function (value) {
+      var valid = !isNaN(parseFloat(value))
+      return valid || 'Please enter a number'
+    },
+    filter: Number
+  },
+  {
+    type: 'input',
+    name: 'duration',
+    message: 'How long does it takes?',
+    default: 5,
+    validate: function (value) {
+      var valid = !isNaN(parseFloat(value))
+      return valid || 'Please enter a number'
+    },
+    filter: Number
   }
+])
+.then(ans => {
+  const opts = {
+    connection,
+    pipelining,
+    duration
+  } = ans
   if (!ans.all) {
     select(list => bench(opts, list))
   } else {
