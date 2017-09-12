@@ -17,7 +17,8 @@ let choices = [
   'koa',
   'restify',
   'take-five',
-  'fastify'
+  'fastify',
+  'fastify-big-json'
 ]
 
 const resultsDirectory = path.join(process.cwd(), 'results')

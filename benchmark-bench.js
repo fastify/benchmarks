@@ -111,6 +111,9 @@ function select (callback) {
         },
         {
           name: 'koa-router'
+        },
+        {
+          name: 'fastify-big-json'
         }
       ],
       validate: function (answer) {
