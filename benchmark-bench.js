@@ -64,6 +64,7 @@ inquirer.prompt([
       'koa',
       'restify',
       'take-five',
+      'total.js',
       'fastify'
     ])
   }
@@ -98,6 +99,9 @@ function select (callback) {
         },
         {
           name: 'take-five'
+        },
+        {
+          name: 'total.js'
         },
         new inquirer.Separator(' = The extras = '),
         {
