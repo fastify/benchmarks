@@ -17,6 +17,7 @@ let choices = [
   'koa',
   'restify',
   'take-five',
+  'total.js',
   'fastify',
   'fastify-big-json'
 ]
