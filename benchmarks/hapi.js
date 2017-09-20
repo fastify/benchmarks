@@ -1,3 +1,5 @@
+'use strict'
+
 const Hapi = require('hapi')
 
 // Create a server with a host and port
@@ -21,7 +23,7 @@ server.route({
       ranges: false
     }
   },
-  handler (request, reply) {
+  handler: function (request, reply) {
     return reply({ hello: 'world' })
   }
 })

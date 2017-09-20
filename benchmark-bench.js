@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict'
 
 const inquirer = require('inquirer')
 const bench = require('./lib/bench')
