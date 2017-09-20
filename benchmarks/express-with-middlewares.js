@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express')
 
 const app = express()
@@ -13,7 +15,7 @@ app.use(require('hsts')())
 app.use(require('ienoopen')())
 app.use(require('x-xss-protection')())
 
-app.get('/', (req, res) => {
+app.get('/', function (req, res) {
   res.json({ hello: 'world' })
 })
 

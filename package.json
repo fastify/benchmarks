@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node benchmark.js",
-    "test": "./node_modules/.bin/standard | ./node_modules/.bin/snazzy",
-    "standard": "./node_modules/.bin/standard | ./node_modules/.bin/snazzy"
+    "compare": "node benchmark.js compare",
+    "test": "standard | snazzy",
+    "standard": "standard | snazzy"
   },
   "bin": {
     "benchmark": "./benchmark.js"

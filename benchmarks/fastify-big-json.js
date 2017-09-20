@@ -1,3 +1,5 @@
+'use strict'
+
 const fastify = require('fastify')()
 
 const opts = {
@@ -24,7 +26,7 @@ function Employee ({ id = null, title = null, employer = null } = {}) {
   this.employer = employer
 }
 
-fastify.get('/', opts, (request, reply) => {
+fastify.get('/', opts, function (request, reply) {
   const jobs = []
 
   for (let i = 0; i < 200; i += 1) {
