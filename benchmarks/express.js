@@ -1,13 +1,12 @@
-'use strict'
+const express = require('express');
 
-var express = require('express')
-var app = express()
+const app = express();
 
-app.disable('etag')
-app.disable('x-powered-by')
+app.disable('etag');
+app.disable('x-powered-by');
 
-app.get('/', function (req, res) {
-  res.json({ hello: 'world' })
-})
+app.get('/', (req, res) => {
+  res.json({ hello: 'world' });
+});
 
-app.listen(3000)
+app.listen(3000);

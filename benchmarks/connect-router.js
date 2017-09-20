@@ -1,15 +1,11 @@
-'use strict'
+const connect = require('connect');
+const router = require('router')();
 
-var connect = require('connect')
-var router = require('router')()
-var app = connect()
+const app = connect();
+router.get('/', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({ hello: 'world' }));
+});
 
-router.get('/', function (req, res) {
-  res.setHeader('Content-Type', 'application/json')
-  res.end(JSON.stringify({ hello: 'world' }))
-})
-
-app
-  .use(router)
-
-app.listen(3000)
+app.use(router);
+app.listen(3000);

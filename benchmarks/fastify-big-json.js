@@ -1,6 +1,4 @@
-'use strict'
-
-const fastify = require('fastify')()
+const fastify = require('fastify')();
 
 const opts = {
   schema: {
@@ -18,22 +16,26 @@ const opts = {
       }
     }
   }
+};
+
+function Employee({ id = null, title = null, employer = null } = {}) {
+  this.id = id;
+  this.title = title;
+  this.employer = employer;
 }
 
-function Eng (id, title, emp) {
-  this.id = id
-  this.title = title
-  this.employer = emp
-}
+fastify.get('/', opts, (request, reply) => {
+  const jobs = [];
 
-fastify.get('/', opts, function (request, reply) {
-  const jobs = []
-
-  for (var i = 0; i < 200; i++) {
-    jobs[i] = new Eng(i, 'Software Engineer', 'nearForm')
+  for (let i = 0; i < 200; i += 1) {
+    jobs[i] = new Employee({
+      id: i,
+      title: 'Software engineer',
+      employer: 'Fastify'
+    });
   }
 
-  reply.send(jobs)
-})
+  reply.send(jobs);
+});
 
-fastify.listen(3000)
+fastify.listen(3000);

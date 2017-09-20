@@ -1,14 +1,11 @@
-'use strict'
+const Koa = require('koa');
+const router = require('koa-router')();
 
-var Koa = require('koa')
-var router = require('koa-router')()
-var app = new Koa()
+const app = new Koa();
 
 router.get('/', async (ctx) => {
-  ctx.body = { hello: 'world' }
-})
+  ctx.body = { hello: 'world' };
+});
 
-app
-  .use(router.routes())
-
-app.listen(3000)
+app.use(router.routes());
+app.listen(3000);
