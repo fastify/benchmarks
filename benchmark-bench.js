@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const inquirer = require('inquirer');
-const bench = require('./lib/bench');
+const inquirer = require('inquirer')
+const bench = require('./lib/bench')
 
 const select = (callback) => {
   inquirer.prompt([
@@ -26,15 +26,15 @@ const select = (callback) => {
         { name: 'koa-router' },
         { name: 'fastify-big-json' }
       ],
-      validate(answer) {
+      validate (answer) {
         if (answer.length < 1) {
-          return 'You must choose at least one package.';
+          return 'You must choose at least one package.'
         }
-        return true;
+        return true
       }
     }
-  ]).then(answers => callback(answers.list));
-};
+  ]).then(answers => callback(answers.list))
+}
 
 inquirer.prompt([
   {
@@ -48,8 +48,8 @@ inquirer.prompt([
     name: 'connection',
     message: 'How many connection you need?',
     default: 100,
-    validate(value) {
-      return !Number.isNaN(parseFloat(value)) || 'Please enter a number';
+    validate (value) {
+      return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
     },
     filter: Number
   },
@@ -58,8 +58,8 @@ inquirer.prompt([
     name: 'pipelining',
     message: 'How many pipelining you need?',
     default: 10,
-    validate(value) {
-      return !Number.isNaN(parseFloat(value)) || 'Please enter a number';
+    validate (value) {
+      return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
     },
     filter: Number
   },
@@ -68,14 +68,14 @@ inquirer.prompt([
     name: 'duration',
     message: 'How long does it takes?',
     default: 5,
-    validate(value) {
-      return !Number.isNaN(parseFloat(value)) || 'Please enter a number';
+    validate (value) {
+      return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
     },
     filter: Number
   }
 ]).then((opts) => {
   if (!opts.all) {
-    select(list => bench(opts, list));
+    select(list => bench(opts, list))
   } else {
     bench(opts, [
       'bare',
@@ -91,6 +91,6 @@ inquirer.prompt([
       'take-five',
       'total.js',
       'fastify'
-    ]);
+    ])
   }
-});
+})
