@@ -1,10 +1,9 @@
-'use strict'
+const Koa = require('koa');
 
-var Koa = require('koa')
-var app = new Koa()
+const app = new Koa();
 
 app.use(async (ctx) => {
-  ctx.body = { hello: 'world' }
-})
+  ctx.body = { hello: 'world' };
+});
 
-app.listen(3000)
+app.listen(3000);

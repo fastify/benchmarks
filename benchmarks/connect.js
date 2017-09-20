@@ -1,11 +1,9 @@
-'use strict'
+const connect = require('connect');
 
-var connect = require('connect')
-var app = connect()
+const app = connect();
+app.use((req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({ hello: 'world' }));
+});
 
-app.use(function (req, res) {
-  res.setHeader('Content-Type', 'application/json')
-  res.end(JSON.stringify({ hello: 'world' }))
-})
-
-app.listen(3000)
+app.listen(3000);
