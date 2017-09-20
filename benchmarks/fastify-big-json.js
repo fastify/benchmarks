@@ -1,4 +1,4 @@
-const fastify = require('fastify')();
+const fastify = require('fastify')()
 
 const opts = {
   schema: {
@@ -16,26 +16,26 @@ const opts = {
       }
     }
   }
-};
+}
 
-function Employee({ id = null, title = null, employer = null } = {}) {
-  this.id = id;
-  this.title = title;
-  this.employer = employer;
+function Employee ({ id = null, title = null, employer = null } = {}) {
+  this.id = id
+  this.title = title
+  this.employer = employer
 }
 
 fastify.get('/', opts, (request, reply) => {
-  const jobs = [];
+  const jobs = []
 
   for (let i = 0; i < 200; i += 1) {
     jobs[i] = new Employee({
       id: i,
       title: 'Software engineer',
       employer: 'Fastify'
-    });
+    })
   }
 
-  reply.send(jobs);
-});
+  reply.send(jobs)
+})
 
-fastify.listen(3000);
+fastify.listen(3000)

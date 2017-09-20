@@ -1,4 +1,4 @@
-const fastify = require('fastify')();
+const fastify = require('fastify')()
 
 const schema = {
   schema: {
@@ -13,11 +13,11 @@ const schema = {
       }
     }
   }
-};
+}
 
 fastify.get('/', schema, (req, reply) => {
   reply
-    .send({ hello: 'world' });
-});
+    .send({ hello: 'world' })
+})
 
-fastify.listen(3000);
+fastify.listen(3000)

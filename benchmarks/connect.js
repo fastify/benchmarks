@@ -1,9 +1,9 @@
-const connect = require('connect');
+const connect = require('connect')
 
-const app = connect();
+const app = connect()
 app.use((req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ hello: 'world' }));
-});
+  res.setHeader('Content-Type', 'application/json')
+  res.end(JSON.stringify({ hello: 'world' }))
+})
 
-app.listen(3000);
+app.listen(3000)

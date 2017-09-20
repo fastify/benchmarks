@@ -1,20 +1,20 @@
-const express = require('express');
+const express = require('express')
 
-const app = express();
+const app = express()
 
-app.disable('etag');
-app.disable('x-powered-by');
+app.disable('etag')
+app.disable('x-powered-by')
 
-app.use(require('cors')());
-app.use(require('dns-prefetch-control')());
-app.use(require('frameguard')());
-app.use(require('hide-powered-by')());
-app.use(require('hsts')());
-app.use(require('ienoopen')());
-app.use(require('x-xss-protection')());
+app.use(require('cors')())
+app.use(require('dns-prefetch-control')())
+app.use(require('frameguard')())
+app.use(require('hide-powered-by')())
+app.use(require('hsts')())
+app.use(require('ienoopen')())
+app.use(require('x-xss-protection')())
 
 app.get('/', (req, res) => {
-  res.json({ hello: 'world' });
-});
+  res.json({ hello: 'world' })
+})
 
-app.listen(3000);
+app.listen(3000)
