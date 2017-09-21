@@ -4,12 +4,15 @@
   "description": "Fast and low overhead web framework called fastify benchmarks.",
   "main": "index.js",
   "scripts": {
-    "start": "node benchmark.js"
+    "start": "node benchmark.js",
+    "compare": "node benchmark.js compare",
+    "test": "standard | snazzy",
+    "standard": "standard | snazzy"
   },
   "bin": {
     "benchmark": "./benchmark.js"
   },
-  "repository": "https://github.com/cagataycali/fastify-benchmarks",
+  "repository": "https://github.com/fastify/benchmarks.git",
   "author": "Çağatay Çalı",
   "license": "MIT",
   "dependencies": {
@@ -36,5 +39,9 @@
     "take-five": "^1.3.4",
     "total.js": "^2.8.0",
     "x-xss-protection": "^1.0.0"
+  },
+  "devDependencies": {
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
   }
 }
