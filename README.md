@@ -26,8 +26,13 @@ npm i -g fastify-benchmarks
 # Usage
 
 ```
-benchmark # Hit [ENTER]
+benchmark [arguments (optional)]
 ```
+
+#### Arguments
+
+* `-h`: Help on how to use the tool.
+* `compare`: Get comparative data for your benchmarks.
 
 # Benchmarks
 
