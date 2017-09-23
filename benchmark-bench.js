@@ -66,7 +66,8 @@ inquirer.prompt([
       'take-five',
       'total.js',
       'fastify',
-      'micro'
+      'micro',
+      'micro-router'
     ])
   }
 })
@@ -122,6 +123,9 @@ function select (callback) {
         },
         {
           name: 'micro'
+        },
+        {
+          name: 'micro-router'
         }
       ],
       validate: function (answer) {

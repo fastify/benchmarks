@@ -20,7 +20,8 @@ let choices = [
   'total.js',
   'fastify',
   'fastify-big-json',
-  'micro'
+  'micro',
+  'micro-router'
 ]
 
 const resultsDirectory = path.join(process.cwd(), 'results')
