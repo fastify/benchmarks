@@ -19,7 +19,8 @@ let choices = [
   'take-five',
   'total.js',
   'fastify',
-  'fastify-big-json'
+  'fastify-big-json',
+  'micro'
 ]
 
 const resultsDirectory = path.join(process.cwd(), 'results')
