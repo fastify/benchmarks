@@ -45,13 +45,10 @@ if (choices.length === 0) {
     }]).then(function (secondChoice) {
       let [a, b] = [firstChoice.choice, secondChoice.choice]
       let result = compare(a, b)
-      if (result === true) {
-        console.log(chalk.green.bold(`${a} and ${b} both are fast!`))
-      } else {
-        console.log(chalk.blue(`Both are awesome but`), chalk.bold.green(result.fastest), chalk.blue(`is`), chalk.red(result.diff), chalk.blue(`faster than`), chalk.bold.yellow(result.slowest))
-        console.log(chalk.bold.green(result.fastest), chalk.blue(`request average is`), chalk.green(result.fastestAvarege))
-        console.log(chalk.bold.yellow(result.slowest), chalk.blue(`request average is`), chalk.yellow(result.slowestAvarege))
-      }
+
+      console.log(chalk.blue(`Both are awesome but`), chalk.bold.green(result.fastest), chalk.blue(`is`), chalk.red(result.diff), chalk.blue(`faster than`), chalk.bold.yellow(result.slowest))
+      console.log(chalk.bold.green(result.fastest), chalk.blue(`request average is`), chalk.green(result.fastestAvarege))
+      console.log(chalk.bold.yellow(result.slowest), chalk.blue(`request average is`), chalk.yellow(result.slowestAvarege))
     })
   })
 }
