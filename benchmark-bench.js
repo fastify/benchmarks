@@ -65,7 +65,9 @@ inquirer.prompt([
       'restify',
       'take-five',
       'total.js',
-      'fastify'
+      'fastify',
+      'micro',
+      'micro-router'
     ])
   }
 })
@@ -118,6 +120,12 @@ function select (callback) {
         },
         {
           name: 'fastify-big-json'
+        },
+        {
+          name: 'micro'
+        },
+        {
+          name: 'micro-router'
         }
       ],
       validate: function (answer) {
