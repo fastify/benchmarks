@@ -33,6 +33,8 @@
     "inquirer": "^3.2.3",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",
+    "micro": "^9.0.0",
+    "microrouter": "^2.2.3",
     "ora": "^1.3.0",
     "restify": "^6.0.0",
     "router": "^1.3.1",
