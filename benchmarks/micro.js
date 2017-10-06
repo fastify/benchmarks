@@ -2,7 +2,7 @@
 
 const micro = require('micro')
 
-const server = micro(async (req, res) => {
+const server = micro(async function (req, res) {
   return {hello: 'world'}
 })
 
