@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict'
 
 const { existsSync } = require('fs')
 const inquirer = require('inquirer')
