@@ -1,6 +1,7 @@
 'use strict'
 
 const express = require('express')
+
 const app = express()
 
 app.disable('etag')
@@ -13,5 +14,4 @@ router.get('/hello', (req, res) => {
 })
 
 app.use('/greet', router)
-
 app.listen(3000)
