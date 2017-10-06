@@ -20,17 +20,21 @@ const opts = {
   }
 }
 
-function Eng (id, title, emp) {
+function Employee ({ id = null, title = null, employer = null } = {}) {
   this.id = id
   this.title = title
-  this.employer = emp
+  this.employer = employer
 }
 
 fastify.get('/', opts, function (request, reply) {
   const jobs = []
 
-  for (var i = 0; i < 200; i++) {
-    jobs[i] = new Eng(i, 'Software Engineer', 'nearForm')
+  for (let i = 0; i < 200; i += 1) {
+    jobs[i] = new Employee({
+      id: i,
+      title: 'Software engineer',
+      employer: 'Fastify'
+    })
   }
 
   reply.send(jobs)

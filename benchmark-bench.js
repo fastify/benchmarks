@@ -1,76 +1,8 @@
 #!/usr/bin/env node
+'use strict'
+
 const inquirer = require('inquirer')
 const bench = require('./lib/bench')
-
-inquirer.prompt([
-  {
-    type: 'confirm',
-    name: 'all',
-    message: 'Do you want to run all benchmark tests?',
-    default: false
-  },
-  {
-    type: 'input',
-    name: 'connection',
-    message: 'How many connection you need?',
-    default: 100,
-    validate: function (value) {
-      var valid = !isNaN(parseFloat(value))
-      return valid || 'Please enter a number'
-    },
-    filter: Number
-  },
-  {
-    type: 'input',
-    name: 'pipelining',
-    message: 'How many pipelining you need?',
-    default: 10,
-    validate: function (value) {
-      var valid = !isNaN(parseFloat(value))
-      return valid || 'Please enter a number'
-    },
-    filter: Number
-  },
-  {
-    type: 'input',
-    name: 'duration',
-    message: 'How long does it takes?',
-    default: 5,
-    validate: function (value) {
-      var valid = !isNaN(parseFloat(value))
-      return valid || 'Please enter a number'
-    },
-    filter: Number
-  }
-])
-.then(ans => {
-  const opts = {
-    connection,
-    pipelining,
-    duration
-  } = ans
-  if (!ans.all) {
-    select(list => bench(opts, list))
-  } else {
-    bench(opts, [
-      'bare',
-      'connect',
-      'connect-router',
-      'express-route-prefix',
-      'express-with-middlewares',
-      'express',
-      'hapi',
-      'koa-router',
-      'koa',
-      'restify',
-      'take-five',
-      'total.js',
-      'fastify',
-      'micro',
-      'micro-router'
-    ])
-  }
-})
 
 function select (callback) {
   inquirer.prompt([
@@ -136,7 +68,68 @@ function select (callback) {
       }
     }
   ])
-    .then(function (answers) {
-      callback(answers.list)
-    })
+  .then(function (answers) {
+    callback(answers.list)
+  })
 }
+
+inquirer.prompt([
+  {
+    type: 'confirm',
+    name: 'all',
+    message: 'Do you want to run all benchmark tests?',
+    default: false
+  },
+  {
+    type: 'input',
+    name: 'connection',
+    message: 'How many connection you need?',
+    default: 100,
+    validate (value) {
+      return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
+    },
+    filter: Number
+  },
+  {
+    type: 'input',
+    name: 'pipelining',
+    message: 'How many pipelining you need?',
+    default: 10,
+    validate (value) {
+      return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
+    },
+    filter: Number
+  },
+  {
+    type: 'input',
+    name: 'duration',
+    message: 'How long does it takes?',
+    default: 5,
+    validate (value) {
+      return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
+    },
+    filter: Number
+  }
+]).then((opts) => {
+  if (!opts.all) {
+    select(list => bench(opts, list))
+  } else {
+    bench(opts, [
+      'bare',
+      'connect',
+      'connect-router',
+      'express-route-prefix',
+      'express-with-middlewares',
+      'express',
+      'hapi',
+      'koa-router',
+      'koa',
+      'restify',
+      'take-five',
+      'total.js',
+      'fastify',
+      'micro',
+      'micro-router'
+    ])
+  }
+})
