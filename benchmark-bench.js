@@ -58,6 +58,12 @@ function select (callback) {
         },
         {
           name: 'micro-router'
+        },
+        {
+          name: 'trek-engine'
+        },
+        {
+          name: 'trek-engine-router'
         }
       ],
       validate: function (answer) {
@@ -129,7 +135,9 @@ inquirer.prompt([
       'total.js',
       'fastify',
       'micro',
-      'micro-router'
+      'micro-router',
+      'trek-engine',
+      'trek-engine-router'
     ])
   }
 })
