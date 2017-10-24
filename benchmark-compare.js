@@ -23,7 +23,9 @@ let choices = [
   'fastify',
   'fastify-big-json',
   'micro',
-  'micro-router'
+  'micro-router',
+  'trek-engine',
+  'trek-engine-router'
 ]
 
 const resultsDirectory = path.join(process.cwd(), 'results')
