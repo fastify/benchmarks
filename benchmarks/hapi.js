@@ -1,37 +1,27 @@
 'use strict'
 
+require('make-promises-safe')
+
 const Hapi = require('hapi')
 
-// Create a server with a host and port
-const server = new Hapi.Server({
-  connections: {
-    compression: false
-  }
-})
-server.connection({
-  host: 'localhost',
-  port: 3000
-})
+async function start () {
+  const server = Hapi.server({ port: 3000 })
 
-// Add the route
-server.route({
-  method: 'GET',
-  path: '/',
-  config: {
-    cache: false,
-    response: {
-      ranges: false
+  server.route({
+    method: 'GET',
+    path: '/',
+    config: {
+      cache: false,
+      response: {
+        ranges: false
+      }
+    },
+    handler: async function (request, h) {
+      return { hello: 'world' }
     }
-  },
-  handler: function (request, reply) {
-    return reply({ hello: 'world' })
-  }
-})
+  })
 
-// Start the server
-server.start((err) => {
-  if (err) {
-    console.error(err)
-    process.exit(1)
-  }
-})
+  await server.start()
+}
+
+start()
