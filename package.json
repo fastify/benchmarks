@@ -26,7 +26,7 @@
     "express": "^4.16.2",
     "fastify": "^0.32.0",
     "frameguard": "^3.0.0",
-    "hapi": "^17.0.0-rc10",
+    "hapi": "^17.0.1",
     "hide-powered-by": "^1.0.0",
     "hsts": "^2.1.0",
     "ienoopen": "^1.0.0",
