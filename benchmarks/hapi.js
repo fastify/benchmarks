@@ -5,7 +5,7 @@ require('make-promises-safe')
 const Hapi = require('hapi')
 
 async function start () {
-  const server = Hapi.server({ port: 3000 })
+  const server = Hapi.server({ port: 3000, debug: false })
 
   server.route({
     method: 'GET',
@@ -14,9 +14,10 @@ async function start () {
       cache: false,
       response: {
         ranges: false
-      }
+      },
+      state: { parse: false }
     },
-    handler: async function (request, h) {
+    handler: function (request, h) {
       return { hello: 'world' }
     }
   })
