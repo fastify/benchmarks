@@ -88,8 +88,8 @@ inquirer.prompt([
   },
   {
     type: 'input',
-    name: 'connection',
-    message: 'How many connection you need?',
+    name: 'connections',
+    message: 'How many connections you need?',
     default: 100,
     validate (value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
