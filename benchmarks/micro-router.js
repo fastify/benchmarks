@@ -1,15 +1,12 @@
 'use strict'
 
 const micro = require('micro')
-const { router, get } = require('microrouter')
+const dispatch = require('micro-route/dispatch')
 
-const hello = async function (req, res) {
-  return micro.send(res, 200, { hello: 'world' })
-}
 const server = micro(
-  router(
-    get('/', hello)
-  )
+  dispatch('/', 'GET', (req, res) => {
+    return micro.send(res, 200, { hello: 'world' })
+  })
 )
 
 server.listen(3000)
