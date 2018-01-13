@@ -17,6 +17,7 @@ let choices = [
   'hapi',
   'koa-router',
   'koa',
+  'polka',
   'restify',
   'take-five',
   'total.js',
