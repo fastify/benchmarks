@@ -24,6 +24,8 @@ let choices = [
   'fastify-big-json',
   'micro',
   'micro-router',
+  'spirit',
+  'spirit-router',
   'trek-engine',
   'trek-engine-router'
 ]
