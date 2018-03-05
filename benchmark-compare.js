@@ -25,7 +25,8 @@ let choices = [
   'micro',
   'micro-router',
   'trek-engine',
-  'trek-engine-router'
+  'trek-engine-router',
+  'turbo-http'
 ]
 
 const resultsDirectory = path.join(process.cwd(), 'results')
