@@ -60,6 +60,12 @@ function select (callback) {
           name: 'micro-router'
         },
         {
+          name: 'spirit'
+        },
+        {
+          name: 'spirit-router'
+        },
+        {
           name: 'trek-engine'
         },
         {
@@ -136,6 +142,8 @@ inquirer.prompt([
       'fastify',
       'micro',
       'micro-router',
+      'spirit',
+      'spirit-router',
       'trek-engine',
       'trek-engine-router'
     ])
