@@ -37,6 +37,9 @@ function select (callback) {
         {
           name: 'total.js'
         },
+        {
+          name: 'polka'
+        },
         new inquirer.Separator(' = The extras = '),
         {
           name: 'connect-router'
