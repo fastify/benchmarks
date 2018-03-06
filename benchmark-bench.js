@@ -4,7 +4,7 @@
 const inquirer = require('inquirer')
 const bench = require('./lib/bench')
 
-function select (callback) {
+function select(callback) {
   inquirer.prompt([
     {
       type: 'checkbox',
@@ -73,6 +73,9 @@ function select (callback) {
         },
         {
           name: 'trek-engine-router'
+        },
+        {
+          name: 'turbo-http'
         }
       ],
       validate: function (answer) {
@@ -83,9 +86,9 @@ function select (callback) {
       }
     }
   ])
-  .then(function (answers) {
-    callback(answers.list)
-  })
+    .then(function (answers) {
+      callback(answers.list)
+    })
 }
 
 inquirer.prompt([
@@ -100,7 +103,7 @@ inquirer.prompt([
     name: 'connections',
     message: 'How many connections you need?',
     default: 100,
-    validate (value) {
+    validate(value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
     },
     filter: Number
@@ -110,7 +113,7 @@ inquirer.prompt([
     name: 'pipelining',
     message: 'How many pipelining you need?',
     default: 10,
-    validate (value) {
+    validate(value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
     },
     filter: Number
@@ -120,7 +123,7 @@ inquirer.prompt([
     name: 'duration',
     message: 'How long does it takes?',
     default: 5,
-    validate (value) {
+    validate(value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
     },
     filter: Number
@@ -148,7 +151,8 @@ inquirer.prompt([
       'spirit',
       'spirit-router',
       'trek-engine',
-      'trek-engine-router'
+      'trek-engine-router',
+      'turbo-http'
     ])
   }
 })

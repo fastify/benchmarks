@@ -46,6 +46,7 @@
     "total.js": "^2.8.0",
     "trek-engine": "^1.0.5",
     "trek-router": "^1.2.0",
+    "turbo-http": "^0.1.1",
     "x-xss-protection": "^1.0.0"
   },
   "devDependencies": {
