@@ -16,6 +16,7 @@
   "author": "Çağatay Çalı",
   "license": "MIT",
   "dependencies": {
+    "@leizm/web": "^1.7.1",
     "autocannon": "^2.0.0",
     "autocannon-compare": "^0.3.0",
     "chalk": "^2.3.2",
