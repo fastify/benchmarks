@@ -40,6 +40,9 @@ function select (callback) {
         {
           name: 'polka'
         },
+        {
+          name: '@leizm-web'
+        },
         new inquirer.Separator(' = The extras = '),
         {
           name: 'connect-router'
