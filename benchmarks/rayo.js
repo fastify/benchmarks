@@ -1,11 +1,11 @@
 'use strict'
 
-const polka = require('polka')
+const rayo = require('rayo')
 
-const app = polka()
+const app = rayo({ port: 3000 })
 
 app.get('/', (req, res) => {
   res.end(JSON.stringify({ hello: 'world' }))
 })
 
-app.listen(3000)
+app.start()
