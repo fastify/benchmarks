@@ -17,16 +17,22 @@ function select (callback) {
           checked: true
         },
         {
-          name: 'express'
+          name: 'connect'
         },
         {
-          name: 'koa'
+          name: 'express'
         },
         {
           name: 'hapi'
         },
         {
-          name: 'connect'
+          name: 'koa'
+        },
+        {
+          name: 'polka'
+        },
+        {
+          name: 'rayo'
         },
         {
           name: 'restify'
@@ -36,9 +42,6 @@ function select (callback) {
         },
         {
           name: 'total.js'
-        },
-        {
-          name: 'polka'
         },
         {
           name: '@leizm-web'
@@ -54,10 +57,10 @@ function select (callback) {
           name: 'express-with-middlewares'
         },
         {
-          name: 'koa-router'
+          name: 'fastify-big-json'
         },
         {
-          name: 'fastify-big-json'
+          name: 'koa-router'
         },
         {
           name: 'micro'
@@ -101,7 +104,7 @@ inquirer.prompt([
   {
     type: 'input',
     name: 'connections',
-    message: 'How many connections you need?',
+    message: 'How many connections do you need?',
     default: 100,
     validate (value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
@@ -111,7 +114,7 @@ inquirer.prompt([
   {
     type: 'input',
     name: 'pipelining',
-    message: 'How many pipelining you need?',
+    message: 'How many pipelines do you need?',
     default: 10,
     validate (value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
@@ -121,7 +124,7 @@ inquirer.prompt([
   {
     type: 'input',
     name: 'duration',
-    message: 'How long does it takes?',
+    message: 'How long should it take?',
     default: 5,
     validate (value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
@@ -136,20 +139,22 @@ inquirer.prompt([
       'bare',
       'connect',
       'connect-router',
+      'express',
       'express-route-prefix',
       'express-with-middlewares',
-      'express',
-      'hapi',
-      'koa-router',
-      'koa',
-      'restify',
-      'take-five',
-      'total.js',
       'fastify',
+      'hapi',
+      'koa',
+      'koa-router',
       'micro',
       'micro-router',
+      'polka',
+      'rayo',
+      'restify',
       'spirit',
       'spirit-router',
+      'take-five',
+      'total.js',
       'trek-engine',
       'trek-engine-router'
     ])

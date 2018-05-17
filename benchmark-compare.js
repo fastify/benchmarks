@@ -11,22 +11,22 @@ let choices = [
   'bare',
   'connect',
   'connect-router',
+  'express',
   'express-route-prefix',
   'express-with-middlewares',
-  'express',
-  'hapi',
-  'koa-router',
-  'koa',
-  'polka',
-  'restify',
-  'take-five',
-  'total.js',
   'fastify',
-  'fastify-big-json',
+  'hapi',
+  'koa',
+  'koa-router',
   'micro',
   'micro-router',
+  'polka',
+  'rayo',
+  'restify',
   'spirit',
   'spirit-router',
+  'take-five',
+  'total.js',
   'trek-engine',
   'trek-engine-router'
 ]
@@ -35,7 +35,7 @@ const resultsDirectory = path.join(process.cwd(), 'results')
 choices = choices.filter(choice => existsSync(path.join(resultsDirectory, `${choice}.json`)))
 
 if (choices.length === 0) {
-  console.log(chalk.red('Run benchmark first to gather results to compare'))
+  console.log(chalk.red('Run benchmark first to gather results to compare.'))
 } else {
   inquirer.prompt([{
     type: 'list',
