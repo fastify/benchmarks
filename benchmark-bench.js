@@ -4,6 +4,32 @@
 const inquirer = require('inquirer')
 const bench = require('./lib/bench')
 
+const choices = {
+  'bare': {},
+  'connect': {},
+  'connect-router': { extra: true },
+  'express': {},
+  'express-route-prefix': { extra: true },
+  'express-with-middlewares': { extra: true },
+  'fastify': { checked: true },
+  'fastify-big-json': { extra: true },
+  'hapi': {},
+  'koa': {},
+  'koa-router': { extra: true },
+  'micro': { extra: true },
+  'micro-router': { extra: true },
+  'polka': {},
+  'rayo': {},
+  'restify': {},
+  'spirit': { extra: true },
+  'spirit-router': { extra: true },
+  'take-five': {},
+  'total.js': {},
+  'trek-engine': { extra: true },
+  'trek-engine-router': { extra: true }
+}
+const choiceNames = Object.keys(choices).sort()
+
 function select (callback) {
   inquirer.prompt([
     {
@@ -12,74 +38,9 @@ function select (callback) {
       name: 'list',
       choices: [
         new inquirer.Separator(' = The usual ='),
-        {
-          name: 'fastify',
-          checked: true
-        },
-        {
-          name: 'connect'
-        },
-        {
-          name: 'express'
-        },
-        {
-          name: 'hapi'
-        },
-        {
-          name: 'koa'
-        },
-        {
-          name: 'polka'
-        },
-        {
-          name: 'rayo'
-        },
-        {
-          name: 'restify'
-        },
-        {
-          name: 'take-five'
-        },
-        {
-          name: 'total.js'
-        },
-        {
-          name: '@leizm-web'
-        },
+        ...choiceNames.map((c) => !choices[c].extra ? Object.assign({}, choices[c], { name: c }) : null).filter(c => c),
         new inquirer.Separator(' = The extras = '),
-        {
-          name: 'connect-router'
-        },
-        {
-          name: 'express-route-prefix'
-        },
-        {
-          name: 'express-with-middlewares'
-        },
-        {
-          name: 'fastify-big-json'
-        },
-        {
-          name: 'koa-router'
-        },
-        {
-          name: 'micro'
-        },
-        {
-          name: 'micro-router'
-        },
-        {
-          name: 'spirit'
-        },
-        {
-          name: 'spirit-router'
-        },
-        {
-          name: 'trek-engine'
-        },
-        {
-          name: 'trek-engine-router'
-        }
+        ...choiceNames.map((c) => choices[c].extra ? Object.assign({}, choices[c], { name: c }) : null).filter(c => c)
       ],
       validate: function (answer) {
         if (answer.length < 1) {
@@ -135,28 +96,6 @@ inquirer.prompt([
   if (!opts.all) {
     select(list => bench(opts, list))
   } else {
-    bench(opts, [
-      'bare',
-      'connect',
-      'connect-router',
-      'express',
-      'express-route-prefix',
-      'express-with-middlewares',
-      'fastify',
-      'hapi',
-      'koa',
-      'koa-router',
-      'micro',
-      'micro-router',
-      'polka',
-      'rayo',
-      'restify',
-      'spirit',
-      'spirit-router',
-      'take-five',
-      'total.js',
-      'trek-engine',
-      'trek-engine-router'
-    ])
+    bench(opts, choiceNames)
   }
 })

@@ -1,41 +1,39 @@
 #!/usr/bin/env node
 'use strict'
 
-const { existsSync } = require('fs')
 const inquirer = require('inquirer')
-const path = require('path')
 const chalk = require('chalk')
+const Table = require('cli-table');
+const { join } = require('path')
+const { readdirSync, readFileSync } = require('fs')
 const { compare } = require('./lib/autocannon')
 
-let choices = [
-  'bare',
-  'connect',
-  'connect-router',
-  'express',
-  'express-route-prefix',
-  'express-with-middlewares',
-  'fastify',
-  'hapi',
-  'koa',
-  'koa-router',
-  'micro',
-  'micro-router',
-  'polka',
-  'rayo',
-  'restify',
-  'spirit',
-  'spirit-router',
-  'take-five',
-  'total.js',
-  'trek-engine',
-  'trek-engine-router'
-]
+const resultsPath = join(process.cwd(), 'results')
+let choices = readdirSync(resultsPath)
+  .filter((file) => file.match(/(.+)\.json$/))
+  .sort()
+  .map((choice) => choice.replace('.json', ''))
 
-const resultsDirectory = path.join(process.cwd(), 'results')
-choices = choices.filter(choice => existsSync(path.join(resultsDirectory, `${choice}.json`)))
+const showAsTable = process.argv[2] === '-t'
+if (!choices.length) {
+  console.log(chalk.red('Benchmark to gather some results to compare.'))
+} else if (showAsTable) {
+  const table = new Table({
+    head: ['', 'Requests/s', 'Latency', 'Throughput/Mb']
+  })
 
-if (choices.length === 0) {
-  console.log(chalk.red('Run benchmark first to gather results to compare.'))
+  choices.forEach((result) => {
+    let data = readFileSync(`${resultsPath}/${result}.json`)
+    data = JSON.parse(data.toString())
+    table.push([
+      chalk.blue(result),
+      data.requests.average,
+      data.latency.average,
+      (data.throughput.average / 1024 / 1024).toFixed(2)
+    ])
+  })
+
+  console.log(table.toString())
 } else {
   inquirer.prompt([{
     type: 'list',

@@ -34,6 +34,8 @@ benchmark [arguments (optional)]
 * `-h`: Help on how to use the tool.
 * `compare`: Get comparative data for your benchmarks.
 
+> You may also compare all test results, at once, in a single table; `benchmark compare -t`
+
 # Benchmarks
 
 __Machine:__ MacBook Pro (Retina, 13-inch, Early 2015) **Processor**: 2,7 GHz Intel Core i5 **Memory**: 8 GB 1867 MHz DDR3
