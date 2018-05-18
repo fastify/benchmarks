@@ -3,7 +3,7 @@
 
 const inquirer = require('inquirer')
 const chalk = require('chalk')
-const Table = require('cli-table');
+const Table = require('cli-table')
 const { join } = require('path')
 const { readdirSync, readFileSync } = require('fs')
 const { compare } = require('./lib/autocannon')
