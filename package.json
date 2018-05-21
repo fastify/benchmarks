@@ -26,6 +26,7 @@
     "dns-prefetch-control": "^0.1.0",
     "express": "^4.16.2",
     "fastify": "^1.0.0-rc.3",
+    "foxify": "^0.7.1",
     "frameguard": "^3.0.0",
     "hapi": "^17.2.1",
     "hide-powered-by": "^1.0.0",

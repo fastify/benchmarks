@@ -27,6 +27,7 @@ let choices = [
   'spirit-router',
   'take-five',
   'total.js',
+  'foxify',
   'trek-engine',
   'trek-engine-router'
 ]
