@@ -44,6 +44,9 @@ function select (callback) {
           name: 'total.js'
         },
         {
+          name: 'foxify'
+        },
+        {
           name: '@leizm-web'
         },
         new inquirer.Separator(' = The extras = '),
@@ -155,6 +158,7 @@ inquirer.prompt([
       'spirit-router',
       'take-five',
       'total.js',
+      'foxify',
       'trek-engine',
       'trek-engine-router'
     ])
