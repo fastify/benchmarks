@@ -89,9 +89,9 @@ function select (callback) {
       }
     }
   ])
-  .then(function (answers) {
-    callback(answers.list)
-  })
+    .then(function (answers) {
+      callback(answers.list)
+    })
 }
 
 inquirer.prompt([
