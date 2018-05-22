@@ -22,14 +22,16 @@ if (!choices.length) {
     head: ['', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
 
+  const bold = (writeBold, str) => writeBold ? chalk.bold(str) : str
   choices.forEach((result) => {
     let data = readFileSync(`${resultsPath}/${result}.json`)
     data = JSON.parse(data.toString())
+    const beBold = result === 'fastify'
     table.push([
-      chalk.blue(result),
-      data.requests.average,
-      data.latency.average,
-      (data.throughput.average / 1024 / 1024).toFixed(2)
+      bold(beBold, chalk.blue(result)),
+      bold(beBold, data.requests.average),
+      bold(beBold, data.latency.average),
+      bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2))
     ])
   })
 
