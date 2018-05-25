@@ -3,32 +3,7 @@
 
 const inquirer = require('inquirer')
 const bench = require('./lib/bench')
-
-const choices = {
-  'bare': {},
-  'connect': {},
-  'connect-router': { extra: true },
-  'express': {},
-  'express-route-prefix': { extra: true },
-  'express-with-middlewares': { extra: true },
-  'fastify': { checked: true },
-  'fastify-big-json': { extra: true },
-  'hapi': {},
-  'koa': {},
-  'koa-router': { extra: true },
-  'micro': { extra: true },
-  'micro-router': { extra: true },
-  'polka': {},
-  'rayo': {},
-  'restify': {},
-  'spirit': { extra: true },
-  'spirit-router': { extra: true },
-  'take-five': {},
-  'total.js': {},
-  'trek-engine': { extra: true },
-  'trek-engine-router': { extra: true }
-}
-const choiceNames = Object.keys(choices).sort()
+const { choices, list } = require('./lib/packages')
 
 function select (callback) {
   inquirer.prompt([
@@ -38,9 +13,9 @@ function select (callback) {
       name: 'list',
       choices: [
         new inquirer.Separator(' = The usual ='),
-        ...choiceNames.map((c) => !choices[c].extra ? Object.assign({}, choices[c], { name: c }) : null).filter(c => c),
+        ...list(),
         new inquirer.Separator(' = The extras = '),
-        ...choiceNames.map((c) => choices[c].extra ? Object.assign({}, choices[c], { name: c }) : null).filter(c => c)
+        ...list(true)
       ],
       validate: function (answer) {
         if (answer.length < 1) {
@@ -96,6 +71,6 @@ inquirer.prompt([
   if (!opts.all) {
     select(list => bench(opts, list))
   } else {
-    bench(opts, choiceNames)
+    bench(opts, choices)
   }
 })

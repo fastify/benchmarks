@@ -7,6 +7,7 @@ const Table = require('cli-table')
 const { join } = require('path')
 const { readdirSync, readFileSync } = require('fs')
 const { compare } = require('./lib/autocannon')
+const { info } = require('./lib/packages')
 
 const resultsPath = join(process.cwd(), 'results')
 let choices = readdirSync(resultsPath)
@@ -19,7 +20,7 @@ if (!choices.length) {
   console.log(chalk.red('Benchmark to gather some results to compare.'))
 } else if (showAsTable) {
   const table = new Table({
-    head: ['', 'Requests/s', 'Latency', 'Throughput/Mb']
+    head: ['', 'Version', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
 
   const bold = (writeBold, str) => writeBold ? chalk.bold(str) : str
@@ -27,8 +28,11 @@ if (!choices.length) {
     let data = readFileSync(`${resultsPath}/${result}.json`)
     data = JSON.parse(data.toString())
     const beBold = result === 'fastify'
+    const { version = 'N/A', hasRouter = false } = info(result) || {}
     table.push([
       bold(beBold, chalk.blue(result)),
+      bold(beBold, version),
+      bold(beBold, hasRouter ? '✓' : '✗'),
       bold(beBold, data.requests.average),
       bold(beBold, data.latency.average),
       bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2))
