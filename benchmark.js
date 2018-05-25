@@ -4,6 +4,6 @@
 const program = require('commander')
 
 program
-  .command('bench', 'bench one or all packages', { isDefault: true })
-  .command('compare', 'compare twice package')
+  .command('bench', 'Benchmark one, multiple or all modules.', { isDefault: true })
+  .command('compare', 'Compare results by module.')
   .parse(process.argv)

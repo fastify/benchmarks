@@ -3,6 +3,7 @@
 
 const inquirer = require('inquirer')
 const bench = require('./lib/bench')
+const { choices, list } = require('./lib/packages')
 
 function select (callback) {
   inquirer.prompt([
@@ -12,74 +13,9 @@ function select (callback) {
       name: 'list',
       choices: [
         new inquirer.Separator(' = The usual ='),
-        {
-          name: 'fastify',
-          checked: true
-        },
-        {
-          name: 'connect'
-        },
-        {
-          name: 'express'
-        },
-        {
-          name: 'hapi'
-        },
-        {
-          name: 'koa'
-        },
-        {
-          name: 'polka'
-        },
-        {
-          name: 'rayo'
-        },
-        {
-          name: 'restify'
-        },
-        {
-          name: 'take-five'
-        },
-        {
-          name: 'total.js'
-        },
-        {
-          name: '@leizm-web'
-        },
+        ...list(),
         new inquirer.Separator(' = The extras = '),
-        {
-          name: 'connect-router'
-        },
-        {
-          name: 'express-route-prefix'
-        },
-        {
-          name: 'express-with-middlewares'
-        },
-        {
-          name: 'fastify-big-json'
-        },
-        {
-          name: 'koa-router'
-        },
-        {
-          name: 'micro'
-        },
-        {
-          name: 'micro-router'
-        },
-        {
-          name: 'spirit'
-        },
-        {
-          name: 'spirit-router'
-        },
-        {
-          name: 'trek-engine'
-        },
-        {
-          name: 'trek-engine-router'
-        }
+        ...list(true)
       ],
       validate: function (answer) {
         if (answer.length < 1) {
@@ -135,28 +71,6 @@ inquirer.prompt([
   if (!opts.all) {
     select(list => bench(opts, list))
   } else {
-    bench(opts, [
-      'bare',
-      'connect',
-      'connect-router',
-      'express',
-      'express-route-prefix',
-      'express-with-middlewares',
-      'fastify',
-      'hapi',
-      'koa',
-      'koa-router',
-      'micro',
-      'micro-router',
-      'polka',
-      'rayo',
-      'restify',
-      'spirit',
-      'spirit-router',
-      'take-five',
-      'total.js',
-      'trek-engine',
-      'trek-engine-router'
-    ])
+    bench(opts, choices)
   }
 })
