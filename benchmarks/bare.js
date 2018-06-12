@@ -1,7 +1,7 @@
 'use strict'
 
 const server = require('http').createServer(function (req, res) {
-  res.setHeader('Content-Type', 'application/json')
+  res.setHeader('content-type', 'application/json')
   res.end(JSON.stringify({ hello: 'world' }))
 })
 
