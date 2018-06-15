@@ -23,7 +23,7 @@ app.use(async ctx => {
 app.on('error', err => {
   assert(err instanceof Error, `non-error thrown: ${err}`)
 
-  if (404 == err.status || err.expose) return
+  if (err.status === 404 || err.expose) return
 
   const msg = err.stack || err.toString()
   console.error()
