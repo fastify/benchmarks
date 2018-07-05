@@ -21,7 +21,6 @@ let choices = readdirSync(resultsPath)
   .sort()
   .map((choice) => choice.replace('.json', ''))
 
-const argvs = process.argv.slice(2)
 const bold = (writeBold, str) => writeBold ? chalk.bold(str) : str
 
 if (!choices.length) {
@@ -47,7 +46,7 @@ if (!choices.length) {
   })
 
   console.log(table.toString())
-} else if (commander.percentage && commander.table) {
+} else if (commander.percentage) {
   let data = []
   choices.forEach(file => {
     let content = readFileSync(`${resultsPath}/${file}.json`)

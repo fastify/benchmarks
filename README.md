@@ -36,7 +36,7 @@ benchmark [arguments (optional)]
 
 > You may also compare all test results, at once, in a single table; `benchmark compare -t` 
 
-> You can also extend the comparsion table with percentage values based on fastest result; `benchmark compare -t -p`
+> You can also extend the comparsion table with percentage values based on fastest result; `benchmark compare -p`
 
 # Benchmarks
 
