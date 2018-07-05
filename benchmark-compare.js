@@ -8,6 +8,12 @@ const { join } = require('path')
 const { readdirSync, readFileSync } = require('fs')
 const { compare } = require('./lib/autocannon')
 const { info } = require('./lib/packages')
+const commander = require('commander')
+
+commander
+  .option('-t, --table', 'table')
+  .option('-p, --percentage', 'percentage')
+  .parse(process.argv)
 
 const resultsPath = join(process.cwd(), 'results')
 let choices = readdirSync(resultsPath)
@@ -20,7 +26,7 @@ const bold = (writeBold, str) => writeBold ? chalk.bold(str) : str
 
 if (!choices.length) {
   console.log(chalk.red('Benchmark to gather some results to compare.'))
-} else if (argvs.indexOf('-t') > -1 && argvs.indexOf('-p') === -1) {
+} else if (commander.table && !commander.percentage) {
   const table = new Table({
     head: ['', 'Version', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
@@ -41,7 +47,7 @@ if (!choices.length) {
   })
 
   console.log(table.toString())
-} else if (argvs.indexOf('-t') > -1 && argvs.indexOf('-p') > -1) {
+} else if (commander.percentage && commander.table) {
   let data = []
   choices.forEach(file => {
     let content = readFileSync(`${resultsPath}/${file}.json`)
