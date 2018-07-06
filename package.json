@@ -50,6 +50,7 @@
     "total.js": "^2.9.4",
     "trek-engine": "^1.0.5",
     "trek-router": "^1.2.0",
+    "vapr": "^0.5.1",
     "x-xss-protection": "^1.1.0"
   },
   "devDependencies": {
