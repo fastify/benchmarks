@@ -5,7 +5,8 @@ const polka = require('polka')
 const app = polka()
 
 app.get('/', (req, res) => {
-  res.end(JSON.stringify({ hello: 'world' }));
+  res.setHeader('content-type', 'application/json')
+  res.end(JSON.stringify({ hello: 'world' }))
 })
 
 app.listen(3000)
