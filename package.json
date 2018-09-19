@@ -25,6 +25,7 @@
     "connect": "^3.6.6",
     "cors": "^2.8.4",
     "dns-prefetch-control": "^0.1.0",
+    "egg": "^2.11.2",
     "express": "^4.16.3",
     "fastify": "^1.6.0",
     "foxify": "^0.7.1",
