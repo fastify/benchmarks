@@ -55,7 +55,7 @@
     "trek-engine": "^1.0.5",
     "trek-router": "^1.2.0",
     "vapr": "^0.5.1",
-    "woodland": "^7.2.10",
+    "woodland": "^7.3.1",
     "x-xss-protection": "^1.1.0"
   },
   "devDependencies": {
