@@ -1,16 +1,26 @@
-'use strict'
+"use strict"
 
-const Foxify = require('foxify')
+const Foxify = require("foxify");
 
-const app = new Foxify()
+const app = new Foxify();
 
-app.disable('x-powered-by')
-app.disable('content-length')
+app.disable("x-powered-by");
 
-app.set('workers', 1)
+app.set("workers", 1);
 
-app.get('/', function (req, res) {
-  res.json({hello: 'world'})
-})
+const schema = {
+  response: {
+    200: {
+      type: "object",
+      properties: {
+        hello: {
+          type: "string",
+        },
+      },
+    },
+  },
+};
 
-app.start()
+app.get("/", { schema }, (req, res) => res.json({ hello: "world" }));
+
+app.start();
