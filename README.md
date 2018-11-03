@@ -42,7 +42,7 @@ benchmark [arguments (optional)]
 
 * __Machine:__ MacBook Pro (Late 2016 | 2,7 GHz Intel Core i7 | 16 GB 2133 MHz LPDDR3)
 * __Method:__ `autocannon -c 100 -d 5 -p 10 localhost:3000` (two rounds; one warm-up, one to measure).
-* __Node:__ `8.12.0`
+* __Node:__ `10.13.0`
 
 ```
 ┌──────────────────────────┬─────────┬────────┬────────────┬─────────┬───────────────┐
