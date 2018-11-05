@@ -22,7 +22,7 @@ const schema = {
 }
 
 app.get('/', { schema }, (req, res) => {
-  res.setHeader('content-type', 'Content-Type: application/json; charset=utf-8')
+  res.setHeader('content-type', 'application/json; charset=utf-8')
   res.json({ hello: 'world' })
 })
 
