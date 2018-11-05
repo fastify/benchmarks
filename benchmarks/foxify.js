@@ -21,6 +21,9 @@ const schema = {
   }
 }
 
-app.get('/', { schema }, (req, res) => res.json({ hello: 'world' }))
+app.get('/', { schema }, (req, res) => {
+  res.setHeader('content-type', 'Content-Type: application/json; charset=utf-8')
+  res.json({ hello: 'world' })
+})
 
 app.start()

@@ -4,6 +4,7 @@ require('server-base')({
   },
   '/': {
     get (req, res) {
+      res.setHeader('content-type', 'Content-Type: application/json; charset=utf-8')
       res.json({ hello: 'world' })
     }
   }
