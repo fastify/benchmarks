@@ -45,7 +45,7 @@ benchmark [arguments (optional)]
 * __Node:__ `10.13.0`
 
 | | Version | Router | Requests\/s | Latency | Throughput\/Mb |
-| :--- | :-: | :-: | :-: | :-: | --: |
+| :--- | --: | :-: | --: | --: | --: |
 | bare | 10.13.0 | ✗ | 42497.6 | 2.28 | 6.03 |
 | connect-router | 1.3.2 | ✓ | 32718.4 | 2.98 | 4.63 |
 | connect | 3.6.6 | ✗ | 39164.81 | 2.48 | 5.58 |
