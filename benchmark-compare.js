@@ -13,6 +13,7 @@ const commander = require('commander')
 commander
   .option('-t, --table', 'table')
   .option('-p, --percentage', 'percentage')
+  .option('-c --commandlineMdTable', 'Print a table for use in MarkDown')
   .parse(process.argv)
 
 const resultsPath = join(process.cwd(), 'results')
@@ -26,9 +27,30 @@ const bold = (writeBold, str) => writeBold ? chalk.bold(str) : str
 if (!choices.length) {
   console.log(chalk.red('Benchmark to gather some results to compare.'))
 } else if (commander.table && !commander.percentage) {
+  const tableSeparatorChars = commander.commandlineMdTable
+    ? {
+      top: '',
+      'top-left': '',
+      'top-mid': '',
+      'top-right': '',
+      bottom: '',
+      'bottom-left': '',
+      'bottom-mid': '',
+      'bottom-right': '',
+      mid: '',
+      'left-mid': '',
+      'mid-mid': '',
+      'right-mid': '',
+      left: '|',
+      right: '|',
+      middle: '|'
+    }
+    : {}
   const table = new Table({
+    chars: tableSeparatorChars,
     head: ['', 'Version', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
+  table.push([':--', '--:', ':-:', '--:', '--:', '--:'])
 
   choices.forEach((result) => {
     let data = readFileSync(`${resultsPath}/${result}.json`)
