@@ -50,7 +50,9 @@ if (!choices.length) {
     chars: tableSeparatorChars,
     head: ['', 'Version', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
-  table.push([':--', '--:', ':-:', '--:', '--:', '--:'])
+  if (commander.commandlineMdTable) {
+    table.push([':--', '--:', ':-:', '--:', '--:', '--:'])
+  }
 
   choices.forEach((result) => {
     let data = readFileSync(`${resultsPath}/${result}.json`)
