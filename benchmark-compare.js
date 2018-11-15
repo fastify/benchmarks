@@ -63,8 +63,8 @@ if (!choices.length) {
       bold(beBold, chalk.blue(result)),
       bold(beBold, version),
       bold(beBold, hasRouter ? '✓' : '✗'),
-      bold(beBold, data.requests.average),
-      bold(beBold, data.latency.average),
+      bold(beBold, (data.requests.average).toFixed(1)),
+      bold(beBold, (data.latency.average).toFixed(2)),
       bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2))
     ])
   })
