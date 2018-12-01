@@ -2,7 +2,7 @@
 
 const http = require('http')
 
-const {adapter} = require('spirit').node
+const { adapter } = require('spirit').node
 const route = require('spirit-router')
 
 const hello = () => {
