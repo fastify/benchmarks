@@ -1,0 +1,299 @@
+{
+  "session": {
+    "maxAge": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-session/config/config.default.js",
+    "key": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-session/config/config.default.js",
+    "httpOnly": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-session/config/config.default.js",
+    "encrypt": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-session/config/config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+    "protocolWhiteList": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+    "defaultMiddleware": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+    "csrf": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "useSession": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "ignoreJSON": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "cookieName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "sessionName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "headerName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "bodyName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "queryName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "xframe": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "hsts": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.local.js",
+      "maxAge": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "includeSubdomains": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "dta": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "noopen": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "nosniff": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "xssProtection": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "value": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "csp": {
+      "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "policy": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js",
+      "checkAddress": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-security/config/config.default.js"
+  },
+  "jsonp": {
+    "limit": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-jsonp/config/config.default.js",
+    "callback": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-jsonp/config/config.default.js",
+    "csrf": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-jsonp/config/config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-onerror/config/config.default.js",
+    "appErrorFilter": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-onerror/config/config.default.js",
+    "templatePath": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-onerror/config/config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-i18n/config/config.default.js",
+    "dirs": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-i18n/config/config.default.js",
+    "queryField": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-i18n/config/config.default.js",
+    "cookieField": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-i18n/config/config.default.js",
+    "cookieMaxAge": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-i18n/config/config.default.js"
+  },
+  "watcher": {
+    "type": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-watcher/config/config.local.js",
+    "eventSources": {
+      "default": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-watcher/config/config.default.js",
+      "development": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-watcher/config/config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-schedule/config/config.default.js",
+      "file": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-schedule/config/config.default.js"
+    }
+  },
+  "multipart": {
+    "mode": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "autoFields": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "defaultCharset": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "fieldNameSize": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "fieldSize": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "fields": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "fileSize": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "files": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "fileExtensions": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "whitelist": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "tmpdir": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js",
+    "cleanSchedule": {
+      "cron": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-multipart/config/config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-development/config/config.default.js",
+    "ignoreDirs": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-development/config/config.default.js",
+    "fastReady": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-development/config/config.default.js",
+    "reloadOnDebug": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-development/config/config.default.js",
+    "overrideDefault": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-development/config/config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-logrotator/config/config.default.js",
+    "hourDelimiter": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-logrotator/config/config.default.js",
+    "filesRotateBySize": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-logrotator/config/config.default.js",
+    "maxFileSize": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-logrotator/config/config.default.js",
+    "maxFiles": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-logrotator/config/config.default.js",
+    "rotateDuration": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-logrotator/config/config.default.js",
+    "maxDays": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-logrotator/config/config.default.js"
+  },
+  "static": {
+    "prefix": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-static/config/config.default.js",
+    "dir": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-static/config/config.default.js",
+    "dynamic": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-static/config/config.default.js",
+    "preload": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-static/config/config.default.js",
+    "buffer": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-static/config/config.default.js",
+    "maxFiles": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-static/config/config.default.js"
+  },
+  "view": {
+    "root": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-view/config/config.default.js",
+    "cache": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-view/config/config.local.js",
+    "defaultExtension": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-view/config/config.default.js",
+    "defaultViewEngine": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-view/config/config.default.js",
+    "mapping": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg-view/config/config.default.js"
+  },
+  "env": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "name": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "keys": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "proxy": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "protocolHeaders": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "ipHeaders": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "hostHeaders": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "pkg": {
+    "name": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "version": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "description": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "main": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "scripts": {
+      "start": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "compare": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "test": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "standard": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    },
+    "bin": {
+      "benchmark": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    },
+    "repository": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "author": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "license": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "dependencies": {
+      "@leizm/web": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "autocannon": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "autocannon-compare": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "chalk": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "cli-table": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "commander": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "connect": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "cors": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "dns-prefetch-control": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "egg": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "express": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "fastify": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "foxify": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "frameguard": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "hapi": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "hide-powered-by": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "hsts": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "ienoopen": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "inquirer": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "koa": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "koa-router": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "make-promises-safe": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "micro": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "micro-route": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "microrouter": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "ora": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "polka": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "rayo": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "restify": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "router": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "server-base": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "server-base-router": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "spirit": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "spirit-router": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "take-five": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "total.js": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "trek-engine": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "trek-router": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "vapr": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "x-xss-protection": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    },
+    "devDependencies": {
+      "snazzy": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "standard": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    }
+  },
+  "baseDir": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "HOME": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "rundir": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "dump": {
+    "ignore": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "notFound": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "sitefile": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "middlewares": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "httpClient": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+  },
+  "bodyParser": {
+    "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "formLimit": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "jsonLimit": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "strict": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "queryString": {
+      "arrayLimit": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "depth": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "parameterLimit": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "encoding": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "env": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "level": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "consoleLevel": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "disableConsoleAfterReady": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "outputJSON": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "buffer": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "appLogName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "coreLogName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "agentLogName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "errorLogName": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "coreLogger": {
+      "consoleLevel": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.local.js"
+    },
+    "allowDebugAtProd": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "dnsCacheLookupInterval": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "dnsCacheMaxLength": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "request": {
+      "timeout": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "freeSocketTimeout": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "maxSockets": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "maxFreeSockets": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "logging": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+  },
+  "coreMiddleware": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "workerStartTimeout": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "serverTimeout": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "port": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+      "hostname": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js",
+    "responseTimeout": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+  },
+  "onClientError": "/Users/jameskyburz/Documents/src/benchmarks/node_modules/egg/config/config.default.js"
+}
