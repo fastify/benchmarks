@@ -5,7 +5,8 @@ const app = new App()
 
 app.then(async ctx => {
   ctx.res.statusCode = 200
-  ctx.res.end('{"hello":"world"}')
+  ctx.res.setHeader('content-type', 'application/json; charset=utf-8')
+  ctx.res.end(JSON.stringify({ hello: 'world' }))
 })
 
 http.createServer(app.resolve()).listen(3000)

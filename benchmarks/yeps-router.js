@@ -8,7 +8,8 @@ const router = new Router()
 
 router.get('/').then(async (ctx) => {
   ctx.res.statusCode = 200
-  ctx.res.end('{"hello":"world"}')
+  ctx.res.setHeader('content-type', 'application/json; charset=utf-8')
+  ctx.res.end(JSON.stringify({ hello: 'world' }))
 })
 
 app.then(router.resolve())
