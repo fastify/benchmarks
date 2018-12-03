@@ -1,10 +1,10 @@
 const http = require('http')
 
 const App = require('yeps')
-const Router = require('yeps-router');
+const Router = require('yeps-router')
 
 const app = new App()
-const router = new Router();
+const router = new Router()
 
 router.get('/').then(async (ctx) => {
   ctx.res.statusCode = 200
