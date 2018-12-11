@@ -55,7 +55,9 @@
     "trek-engine": "^1.0.5",
     "trek-router": "^1.2.0",
     "vapr": "^0.5.1",
-    "x-xss-protection": "^1.1.0"
+    "x-xss-protection": "^1.1.0",
+    "yeps": "^1.1.1",
+    "yeps-router": "^1.2.0"
   },
   "devDependencies": {
     "snazzy": "^8.0.0",
