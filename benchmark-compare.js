@@ -96,7 +96,7 @@ if (!choices.length) {
   })
   data.forEach(result => {
     const beBold = result.server === 'fastify'
-    const { version = 'N/A', hasRouter = false } = info(result.server) || {}
+    const { hasRouter = false } = info(result.server) || {}
     const getPct = (base, value) => ((value / base * 100).toFixed(2))
 
     table.push([
