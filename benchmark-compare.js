@@ -58,7 +58,7 @@ if (!choices.length) {
     let data = readFileSync(`${resultsPath}/${result}.json`)
     data = JSON.parse(data.toString())
     const beBold = result === 'fastify'
-    const { version = 'N/A', hasRouter = false } = info(result) || {}
+    const { hasRouter = false } = info(result) || {}
     table.push([
       bold(beBold, chalk.blue(result)),
       bold(beBold, hasRouter ? '✓' : '✗'),
@@ -87,7 +87,6 @@ if (!choices.length) {
   const table = new Table({
     head: [
       '',
-      'Version',
       'Router',
       `Requests/s\n(% of ${base.name})`,
       `Latency\n(% of ${base.name})`,
@@ -101,7 +100,6 @@ if (!choices.length) {
 
     table.push([
       bold(beBold, chalk.blue(result.server)),
-      bold(beBold, version),
       bold(beBold, hasRouter ? '✓' : '✗'),
       bold(beBold, `${result.requests.mean}\n(${getPct(base.request, result.requests.mean)})`),
       bold(beBold, `${result.latency.mean}\n(${getPct(base.latency, result.latency.mean)})`),
