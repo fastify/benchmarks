@@ -48,7 +48,7 @@ if (!choices.length) {
     : {}
   const table = new Table({
     chars: tableSeparatorChars,
-    head: ['', 'Version', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
+    head: ['', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
   if (commander.commandlineMdTable) {
     table.push([':--', '--:', ':-:', '--:', '--:', '--:'])
@@ -61,7 +61,6 @@ if (!choices.length) {
     const { version = 'N/A', hasRouter = false } = info(result) || {}
     table.push([
       bold(beBold, chalk.blue(result)),
-      bold(beBold, version),
       bold(beBold, hasRouter ? '✓' : '✗'),
       bold(beBold, (data.requests.average).toFixed(1)),
       bold(beBold, (data.latency.average).toFixed(2)),
