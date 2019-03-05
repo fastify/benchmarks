@@ -61,7 +61,7 @@ inquirer.prompt([
     type: 'input',
     name: 'duration',
     message: 'How long should it take?',
-    default: 5,
+    default: 40,
     validate (value) {
       return !Number.isNaN(parseFloat(value)) || 'Please enter a number'
     },
