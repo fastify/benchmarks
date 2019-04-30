@@ -2,7 +2,7 @@
 
 require('make-promises-safe')
 
-const Hapi = require('hapi')
+const Hapi = require('@hapi/hapi')
 
 async function start () {
   const server = Hapi.server({ port: 3000, debug: false })
