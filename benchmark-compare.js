@@ -51,7 +51,7 @@ if (!choices.length) {
     head: ['', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
   if (commander.commandlineMdTable) {
-    table.push([':--', '--:', ':-:', '--:', '--:', '--:'])
+    table.push([':--', '--:', ':-:', '--:', '--:'])
   }
 
   choices.forEach((result) => {
