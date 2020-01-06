@@ -14,10 +14,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12
-    - name: benchmarks
+    - name: run benchmarks
       run: |
         npm install
         npm start y 100 10 40
+    - name: commit benchmarks
+      run: |
         node_version=$(node --version)
         benchmark_title=$(cat << EOF
         # Benchmarks
@@ -34,5 +36,7 @@ jobs:
         git config user.name 'Github Actions'
         git config user.email '<>'
         git commit -m "Add new benchmarks to README.md"
-        git remote set-url --push origin https://${{ secrets.GITHUB_USERNAME }}:${{ secrets.GITHUB_REPO_TOKEN }}@github.com/fastify/benchmarks
-        git push
+    - name: push benchmark changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
