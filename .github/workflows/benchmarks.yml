@@ -1,0 +1,42 @@
+name: Node benchmarks
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 0 1 * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: run benchmarks
+      run: |
+        npm install
+        npm start y 100 10 40
+    - name: commit benchmarks
+      run: |
+        node_version=$(node --version)
+        benchmark_title=$(cat << EOF
+        # Benchmarks
+        * __Machine:__ $(uname -a) | $(node -r os -p "\`\${os.cpus().length} vCPUs | \${Math.ceil(os.totalmem() / (Math.pow(1024, 3)))}GB\`").
+        * __Method:__ \`autocannon -c 100 -d 40 -p 10 localhost:3000\` (two rounds; one to warm-up, one to measure).
+        * __Node:__ \`$node_version\`
+        * __Run:__ $(date)
+        EOF)
+        benchmark_table=$(node benchmark-compare.js -t -c)
+        strip_readme=$(node -r fs -p 'fs.readFileSync("./README.md", "utf-8").split(/# Benchmarks/)[0]')
+        git checkout master
+        echo -e "${strip_readme:?}\n${benchmark_title:?}\n\n${benchmark_table}" > README.md
+        git add README.md
+        git config user.name 'Github Actions'
+        git config user.email '<>'
+        git commit -m "Add new benchmarks to README.md"
+    - name: push benchmark changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
