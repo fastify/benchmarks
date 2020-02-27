@@ -54,19 +54,31 @@ if (!choices.length) {
     table.push([':--', '--:', ':-:', '--:', '--:'])
   }
 
-  choices.forEach((result) => {
-    let data = readFileSync(`${resultsPath}/${result}.json`)
-    data = JSON.parse(data.toString())
-    const beBold = result === 'fastify'
-    const { hasRouter = false } = info(result) || {}
-    table.push([
-      bold(beBold, chalk.blue(result)),
-      bold(beBold, hasRouter ? '✓' : '✗'),
-      bold(beBold, (data.requests.average).toFixed(1)),
-      bold(beBold, (data.latency.average).toFixed(2)),
-      bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2))
-    ])
+  choices.map(file => {
+    let content = readFileSync(`${resultsPath}/${file}.json`)
+    return JSON.parse(content.toString())
   })
+    .sort((a, b) => {
+      return parseFloat(b.requests.mean) - parseFloat(a.requests.mean)
+    })
+    .forEach((data) => {
+      const beBold = data.server === 'fastify'
+      const { hasRouter = false } = info(data.server) || {}
+
+      const {
+        requests: { average: requests },
+        latency: { average: latency },
+        throughput: { average: throughput }
+      } = data
+
+      table.push([
+        bold(beBold, chalk.blue(data.server)),
+        bold(beBold, hasRouter ? '✓' : '✗'),
+        bold(beBold, requests ? requests.toFixed(1) : 'N/A'),
+        bold(beBold, latency ? latency.toFixed(2) : 'N/A'),
+        bold(beBold, throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A')
+      ])
+    })
 
   console.log(table.toString())
 } else if (commander.percentage) {
