@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@leizm/web": "^2.6.0",
+    "@leizm/web": "^2.7.0",
     "autocannon": "^3.2.0",
     "autocannon-compare": "^0.3.0",
     "chalk": "^2.4.2",
