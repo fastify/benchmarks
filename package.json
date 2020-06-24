@@ -23,6 +23,9 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@hapi/hapi": "^18.3.0",
+    "@hatsy/hatsy": "^1.0.1",
+    "@hatsy/router": "^1.0.0",
     "@leizm/web": "^2.6.0",
     "autocannon": "^3.2.0",
     "autocannon-compare": "^0.3.0",
@@ -37,7 +40,6 @@
     "fastify": "^2.0.0",
     "foxify": "^0.10.20",
     "frameguard": "^3.0.0",
-    "@hapi/hapi": "^18.3.0",
     "hide-powered-by": "^1.0.0",
     "hsts": "^2.1.0",
     "ienoopen": "^1.0.0",
