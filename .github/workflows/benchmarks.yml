@@ -1,6 +1,7 @@
 name: Node benchmarks
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
