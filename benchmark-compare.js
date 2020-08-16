@@ -109,12 +109,12 @@ if (!choices.length) {
   })
   data.forEach(result => {
     const beBold = result.server === 'fastify'
-    const { hasRouter = false } = info(result.server) || {}
+    const { hasRouter = false, version } = info(result.server) || {}
     const getPct = (base, value) => ((value / base * 100).toFixed(2))
 
     table.push([
       bold(beBold, chalk.blue(result.server)),
-      bold(beBold, result.version),
+      bold(beBold, version),
       bold(beBold, hasRouter ? '✓' : '✗'),
       bold(beBold, `${result.requests.mean}\n(${getPct(base.request, result.requests.mean)})`),
       bold(beBold, `${result.latency.mean}\n(${getPct(base.latency, result.latency.mean)})`),
