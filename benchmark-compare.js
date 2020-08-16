@@ -48,7 +48,7 @@ if (!choices.length) {
     : {}
   const table = new Table({
     chars: tableSeparatorChars,
-    head: ['', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
+    head: ['', 'Version', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
   if (commander.commandlineMdTable) {
     table.push([':--', '--:', ':-:', '--:', '--:'])
@@ -63,7 +63,7 @@ if (!choices.length) {
     })
     .forEach((data) => {
       const beBold = data.server === 'fastify'
-      const { hasRouter = false } = info(data.server) || {}
+      const { hasRouter = false, version } = info(data.server) || {}
 
       const {
         requests: { average: requests },
@@ -73,6 +73,7 @@ if (!choices.length) {
 
       table.push([
         bold(beBold, chalk.blue(data.server)),
+        bold(beBold, version),
         bold(beBold, hasRouter ? '✓' : '✗'),
         bold(beBold, requests ? requests.toFixed(1) : 'N/A'),
         bold(beBold, latency ? latency.toFixed(2) : 'N/A'),
@@ -99,6 +100,7 @@ if (!choices.length) {
   const table = new Table({
     head: [
       '',
+      'Version',
       'Router',
       `Requests/s\n(% of ${base.name})`,
       `Latency\n(% of ${base.name})`,
@@ -112,6 +114,7 @@ if (!choices.length) {
 
     table.push([
       bold(beBold, chalk.blue(result.server)),
+      bold(beBold, result.version),
       bold(beBold, hasRouter ? '✓' : '✗'),
       bold(beBold, `${result.requests.mean}\n(${getPct(base.request, result.requests.mean)})`),
       bold(beBold, `${result.latency.mean}\n(${getPct(base.latency, result.latency.mean)})`),
