@@ -133,7 +133,7 @@ if (!choices.length) {
         hasRouter,
         requests: result.requests.mean,
         latency: result.latency.mean,
-        throughput: result.throughput.mean
+        throughput: (result.throughput.mean / 1024 / 1024).toFixed(2)
       }
     )
 
