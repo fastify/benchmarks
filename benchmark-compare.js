@@ -29,22 +29,22 @@ if (!choices.length) {
 } else if (commander.table && !commander.percentage) {
   const tableSeparatorChars = commander.commandlineMdTable
     ? {
-      top: '',
-      'top-left': '',
-      'top-mid': '',
-      'top-right': '',
-      bottom: '',
-      'bottom-left': '',
-      'bottom-mid': '',
-      'bottom-right': '',
-      mid: '',
-      'left-mid': '',
-      'mid-mid': '',
-      'right-mid': '',
-      left: '|',
-      right: '|',
-      middle: '|'
-    }
+        top: '',
+        'top-left': '',
+        'top-mid': '',
+        'top-right': '',
+        bottom: '',
+        'bottom-left': '',
+        'bottom-mid': '',
+        'bottom-right': '',
+        mid: '',
+        'left-mid': '',
+        'mid-mid': '',
+        'right-mid': '',
+        left: '|',
+        right: '|',
+        middle: '|'
+      }
     : {}
   const table = new Table({
     chars: tableSeparatorChars,
@@ -54,7 +54,7 @@ if (!choices.length) {
     table.push([':--', '--:', '--:', ':-:', '--:', '--:'])
   }
 
-  const arrayObjChoices = [];
+  const arrayObjChoices = []
   choices.map(file => {
     let content = readFileSync(`${resultsPath}/${file}.json`)
     return JSON.parse(content.toString())
@@ -81,8 +81,8 @@ if (!choices.length) {
           latency: latency ? latency.toFixed(2) : 'N/A',
           throughput: throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A'
         }
-      );
-    
+      )
+
       table.push([
         bold(beBold, chalk.blue(data.server)),
         bold(beBold, version),
@@ -120,7 +120,7 @@ if (!choices.length) {
       `Throughput/Mb\n(% of ${base.name})`
     ]
   })
-  const arrayObjChoices = [];
+  const arrayObjChoices = []
   data.forEach(result => {
     const beBold = result.server === 'fastify'
     const { hasRouter = false, version } = info(result.server) || {}
@@ -135,7 +135,7 @@ if (!choices.length) {
         latency: result.latency.mean,
         throughput: result.throughput.mean
       }
-    );
+    )
 
     table.push([
       bold(beBold, chalk.blue(result.server)),
