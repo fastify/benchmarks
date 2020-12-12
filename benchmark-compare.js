@@ -29,22 +29,22 @@ if (!choices.length) {
 } else if (commander.table && !commander.percentage) {
   const tableSeparatorChars = commander.commandlineMdTable
     ? {
-        top: '',
-        'top-left': '',
-        'top-mid': '',
-        'top-right': '',
-        bottom: '',
-        'bottom-left': '',
-        'bottom-mid': '',
-        'bottom-right': '',
-        mid: '',
-        'left-mid': '',
-        'mid-mid': '',
-        'right-mid': '',
-        left: '|',
-        right: '|',
-        middle: '|'
-      }
+      top: '',
+      'top-left': '',
+      'top-mid': '',
+      'top-right': '',
+      bottom: '',
+      'bottom-left': '',
+      'bottom-mid': '',
+      'bottom-right': '',
+      mid: '',
+      'left-mid': '',
+      'mid-mid': '',
+      'right-mid': '',
+      left: '|',
+      right: '|',
+      middle: '|'
+    }
     : {}
   const table = new Table({
     chars: tableSeparatorChars,
