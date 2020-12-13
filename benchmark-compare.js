@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 const chalk = require('chalk')
 const Table = require('cli-table')
 const { join } = require('path')
-const { readdirSync, readFileSync } = require('fs')
+const { readdirSync, readFileSync, writeFileSync } = require('fs')
 const { compare } = require('./lib/autocannon')
 const { info } = require('./lib/packages')
 const commander = require('commander')
@@ -54,6 +54,7 @@ if (!choices.length) {
     table.push([':--', '--:', '--:', ':-:', '--:', '--:'])
   }
 
+  const arrayObjChoices = []
   choices.map(file => {
     let content = readFileSync(`${resultsPath}/${file}.json`)
     return JSON.parse(content.toString())
@@ -71,6 +72,17 @@ if (!choices.length) {
         throughput: { average: throughput }
       } = data
 
+      arrayObjChoices.push(
+        {
+          name: data.server,
+          version,
+          hasRouter,
+          requests: requests ? requests.toFixed(1) : 'N/A',
+          latency: latency ? latency.toFixed(2) : 'N/A',
+          throughput: throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A'
+        }
+      )
+
       table.push([
         bold(beBold, chalk.blue(data.server)),
         bold(beBold, version),
@@ -82,6 +94,7 @@ if (!choices.length) {
     })
 
   console.log(table.toString())
+  writeFileSync('benchmark-results.json', JSON.stringify(arrayObjChoices), 'utf8')
 } else if (commander.percentage) {
   let data = []
   choices.forEach(file => {
@@ -107,10 +120,22 @@ if (!choices.length) {
       `Throughput/Mb\n(% of ${base.name})`
     ]
   })
+  const arrayObjChoices = []
   data.forEach(result => {
     const beBold = result.server === 'fastify'
     const { hasRouter = false, version } = info(result.server) || {}
     const getPct = (base, value) => ((value / base * 100).toFixed(2))
+
+    arrayObjChoices.push(
+      {
+        name: result.server,
+        version,
+        hasRouter,
+        requests: result.requests.mean,
+        latency: result.latency.mean,
+        throughput: (result.throughput.mean / 1024 / 1024).toFixed(2)
+      }
+    )
 
     table.push([
       bold(beBold, chalk.blue(result.server)),
@@ -123,6 +148,7 @@ if (!choices.length) {
   })
 
   console.log(table.toString())
+  writeFileSync('benchmark-results.json', JSON.stringify(arrayObjChoices), 'utf8')
 } else {
   inquirer.prompt([{
     type: 'list',

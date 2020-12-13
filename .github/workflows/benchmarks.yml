@@ -37,6 +37,7 @@ jobs:
         git checkout master
         echo -e "${strip_readme:?}\n${benchmark_title:?}\n\n${benchmark_table}" > README.md
         git add README.md
+        git add benchmark-results.json
         git config user.name 'Github Actions'
         git config user.email '<>'
         git commit -m "Add new benchmarks to README.md"
