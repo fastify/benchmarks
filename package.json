@@ -44,7 +44,7 @@
     "ienoopen": "^1.0.0",
     "inquirer": "^6.2.2",
     "koa": "^2.7.0",
-    "koa-router": "^7.4.0",
+    "koa-router": "^10.0.0",
     "make-promises-safe": "^4.0.0",
     "micro": "^9.3.3",
     "micro-route": "^2.5.0",
