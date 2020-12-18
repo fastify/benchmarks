@@ -26,7 +26,7 @@
     "0http": "^3.0.0",
     "@hapi/hapi": "^20.0.1",
     "@leizm/web": "^2.6.0",
-    "autocannon": "^3.2.0",
+    "autocannon": "^7.0.1",
     "autocannon-compare": "^0.4.0",
     "chalk": "^2.4.2",
     "cli-table": "^0.3.1",
