@@ -28,7 +28,7 @@
     "@leizm/web": "^2.6.0",
     "autocannon": "^3.2.0",
     "autocannon-compare": "^0.4.0",
-    "chalk": "^2.4.2",
+    "chalk": "^4.1.0",
     "cli-table": "^0.3.1",
     "commander": "^2.19.0",
     "connect": "^3.6.6",
