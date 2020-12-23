@@ -70,7 +70,7 @@
     "yeps-router": "^1.2.0"
   },
   "devDependencies": {
-    "snazzy": "^8.0.0",
+    "snazzy": "^9.0.0",
     "standard": "^12.0.1"
   }
 }
