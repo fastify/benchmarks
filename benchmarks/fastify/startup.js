@@ -1,13 +1,13 @@
 'use strict'
 
 const benchmark = require('benchmark')
-const suite = new benchmark.Suite()
 
-const Fastify = require('fastify')
+const suite = new benchmark.Suite()
+const { Worker } = require('worker_threads')
+const path = require('path')
 
 suite.add('raw startup', function (deferred) {
-  const server = Fastify()
-  server.ready(() => {
+  new Worker(path.join(__dirname, './startup-listen.js')).on('exit', () => {
     deferred.resolve()
   })
 }, { defer: true })
