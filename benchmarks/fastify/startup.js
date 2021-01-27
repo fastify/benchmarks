@@ -12,8 +12,22 @@ suite.add('raw startup', function (deferred) {
   })
 }, { defer: true })
 
+for (let i = 1; i <= 10_000; i *= 10) {
+  suite.add(`startup with ${i} raw routes`, function (deferred) {
+    new Worker(
+      path.join(__dirname, './startup-listen.js'),
+      {
+        env: {
+          routes: i
+        }
+      }).on('exit', () => {
+        deferred.resolve()
+      })
+  }, { defer: true })
+}
+
 suite.on('cycle', (event) => {
   console.info(String(event.target))
 })
 
-suite.run()
+suite.run({ async: false })
