@@ -15,7 +15,7 @@ suite.add('raw startup', function (deferred) {
 for (let i = 1; i <= 10_000; i *= 10) {
   suite.add(`startup with ${i} raw routes`, function (deferred) {
     new Worker(
-      path.join(__dirname, './startup-listen.js'),
+      path.join(__dirname, './startup-routes.js'),
       {
         env: {
           routes: i
