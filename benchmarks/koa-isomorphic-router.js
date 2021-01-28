@@ -6,7 +6,7 @@ const Router = require('koa-isomorphic-router')
 const app = new Koa()
 const router = new Router()
 
-router.get('/', async function (ctx) {
+router.get('/', function (ctx) {
   ctx.body = { hello: 'world' }
 })
 
