@@ -1,10 +1,11 @@
 'use strict'
 
-const five = require('take-five')
+const Five = require('take-five')
 
-const server = five()
-server.get('/', function (req, res) {
-  return res.send({ hello: 'world' })
+const server = new Five()
+
+server.get('/', function (req, res, ctx) {
+  return ctx.send({ hello: 'world' })
 })
 
 server.listen(3000)
