@@ -12,7 +12,7 @@ suite.add('raw startup', function (deferred) {
   })
 }, { defer: true })
 
-for (let i = 1; i <= 10_000; i *= 10) {
+for (let i = 1; i <= 10000; i *= 10) {
   suite.add(`startup with ${i} raw routes`, function (deferred) {
     new Worker(
       path.join(__dirname, './startup-routes.js'),
@@ -21,14 +21,13 @@ for (let i = 1; i <= 10_000; i *= 10) {
           routes: i
         }
       }
-    )
-    .on('exit', () => {
+    ).on('exit', () => {
       deferred.resolve()
     })
   }, { defer: true })
 }
 
-for (let i = 1; i <= 10_000; i *= 10) {
+for (let i = 1; i <= 10000; i *= 10) {
   suite.add(`startup with ${i} querystring schema routes`, function (deferred) {
     new Worker(
       path.join(__dirname, './startup-routes-schema.js'),
@@ -37,8 +36,7 @@ for (let i = 1; i <= 10_000; i *= 10) {
           routes: i
         }
       }
-    )
-    .on('exit', () => {
+    ).on('exit', () => {
       deferred.resolve()
     })
   }, { defer: true })
