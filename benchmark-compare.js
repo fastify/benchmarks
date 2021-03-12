@@ -29,22 +29,22 @@ if (!choices.length) {
 } else if (commander.table && !commander.percentage) {
   const tableSeparatorChars = commander.commandlineMdTable
     ? {
-      top: '',
-      'top-left': '',
-      'top-mid': '',
-      'top-right': '',
-      bottom: '',
-      'bottom-left': '',
-      'bottom-mid': '',
-      'bottom-right': '',
-      mid: '',
-      'left-mid': '',
-      'mid-mid': '',
-      'right-mid': '',
-      left: '|',
-      right: '|',
-      middle: '|'
-    }
+        top: '',
+        'top-left': '',
+        'top-mid': '',
+        'top-right': '',
+        bottom: '',
+        'bottom-left': '',
+        'bottom-mid': '',
+        'bottom-right': '',
+        mid: '',
+        'left-mid': '',
+        'mid-mid': '',
+        'right-mid': '',
+        left: '|',
+        right: '|',
+        middle: '|'
+      }
     : {}
   const table = new Table({
     chars: tableSeparatorChars,
@@ -56,7 +56,7 @@ if (!choices.length) {
 
   const arrayObjChoices = []
   choices.map(file => {
-    let content = readFileSync(`${resultsPath}/${file}.json`)
+    const content = readFileSync(`${resultsPath}/${file}.json`)
     return JSON.parse(content.toString())
   })
     .sort((a, b) => {
@@ -96,9 +96,9 @@ if (!choices.length) {
   console.log(table.toString())
   writeFileSync('benchmark-results.json', JSON.stringify(arrayObjChoices), 'utf8')
 } else if (commander.percentage) {
-  let data = []
+  const data = []
   choices.forEach(file => {
-    let content = readFileSync(`${resultsPath}/${file}.json`)
+    const content = readFileSync(`${resultsPath}/${file}.json`)
     data.push(JSON.parse(content.toString()))
   })
   data.sort((a, b) => {
