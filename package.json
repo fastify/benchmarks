@@ -42,7 +42,7 @@
     "hide-powered-by": "^1.0.0",
     "hsts": "^2.1.0",
     "ienoopen": "^1.0.0",
-    "inquirer": "^7.3.3",
+    "inquirer": "^8.0.0",
     "koa": "^2.7.0",
     "koa-isomorphic-router": "^1.0.0",
     "koa-router": "^10.0.0",
