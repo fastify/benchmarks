@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [12, 14, 16]
 
     steps:
       - uses: actions/checkout@v2.3.4
@@ -29,6 +29,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: fastify/github-action-merge-dependabot@v2.0.0
-        if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
         with:
           github-token: ${{secrets.github_token}}
