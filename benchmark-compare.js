@@ -1,34 +1,69 @@
 #!/usr/bin/env node
 'use strict'
 
+const os = require('os')
+const commander = require('commander')
 const inquirer = require('inquirer')
-const chalk = require('chalk')
 const Table = require('cli-table')
+const chalk = require('chalk')
 const { join } = require('path')
 const { readdirSync, readFileSync, writeFileSync } = require('fs')
-const { compare } = require('./lib/autocannon')
 const { info } = require('./lib/packages')
-const commander = require('commander')
-
-commander
-  .option('-t, --table', 'table')
-  .option('-p, --percentage', 'percentage')
-  .option('-c --commandlineMdTable', 'Print a table for use in MarkDown')
-  .parse(process.argv)
+const { compare } = require('./lib/autocannon')
 
 const resultsPath = join(process.cwd(), 'results')
-let choices = readdirSync(resultsPath)
-  .filter((file) => file.match(/(.+)\.json$/))
-  .sort()
-  .map((choice) => choice.replace('.json', ''))
 
-const bold = (writeBold, str) => writeBold ? chalk.bold(str) : str
+commander
+  .option('-t, --table', 'print table')
+  .option('-m --markdown', 'format table for markdown')
+  .option('-u --update', 'update README.md')
+  .parse(process.argv)
 
-if (!choices.length) {
+const opts = commander.opts()
+
+if (opts.markdown || opts.update) {
+  chalk.level = 0
+}
+
+if (!getAvailableResults().length) {
   console.log(chalk.red('Benchmark to gather some results to compare.'))
-} else if (commander.table && !commander.percentage) {
-  const tableSeparatorChars = commander.commandlineMdTable
-    ? {
+} else if (opts.update) {
+  updateReadme()
+} else if (opts.table) {
+  console.log(compareResults(opts.markdown))
+} else {
+  compareResultsInteractive()
+}
+
+function getAvailableResults () {
+  return readdirSync(resultsPath)
+    .filter((file) => file.match(/(.+)\.json$/))
+    .sort()
+    .map((choice) => choice.replace('.json', ''))
+}
+
+function formatHasRouter (hasRouter) {
+  return typeof hasRouter === 'string' ? hasRouter : (hasRouter ? '✓' : '✗')
+}
+
+function updateReadme () {
+  const machineInfo = `${os.platform()} ${os.arch()} | ${os.cpus().length} vCPUs | ${(os.totalmem() / (1024 ** 3)).toFixed(1)}GB Mem`
+  const benchmarkMd = `# Benchmarks
+
+* __Machine:__ ${machineInfo}
+* __Node:__ \`${process.version}\`
+* __Run:__ ${new Date()}
+* __Method:__ \`autocannon -c 100 -d 40 -p 10 localhost:3000\` (two rounds; one to warm-up, one to measure)
+
+${compareResults(true)}
+`
+  const md = readFileSync('README.md', 'utf8')
+  writeFileSync('README.md', md.split('# Benchmarks')[0] + benchmarkMd, 'utf8')
+}
+
+function compareResults (markdown) {
+  const tableStyle = !markdown ? {} : {
+    chars: {
       top: '',
       'top-left': '',
       'top-mid': '',
@@ -44,141 +79,102 @@ if (!choices.length) {
       left: '|',
       right: '|',
       middle: '|'
+    },
+    style: {
+      border: [],
+      head: []
     }
-    : {}
+  }
+
   const table = new Table({
-    chars: tableSeparatorChars,
+    ...tableStyle,
     head: ['', 'Version', 'Router', 'Requests/s', 'Latency', 'Throughput/Mb']
   })
-  if (commander.commandlineMdTable) {
+
+  if (markdown) {
     table.push([':--', '--:', '--:', ':-:', '--:', '--:'])
   }
 
-  const arrayObjChoices = []
-  choices.map(file => {
+  const results = getAvailableResults().map(file => {
     let content = readFileSync(`${resultsPath}/${file}.json`)
     return JSON.parse(content.toString())
-  })
-    .sort((a, b) => {
-      return parseFloat(b.requests.mean) - parseFloat(a.requests.mean)
-    })
-    .forEach((data) => {
-      const beBold = data.server === 'fastify'
-      const { hasRouter = false, version } = info(data.server) || {}
+  }).sort((a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean))
 
-      const {
-        requests: { average: requests },
-        latency: { average: latency },
-        throughput: { average: throughput }
-      } = data
+  const outputResults = []
+  const formatThroughput = throughput => throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A'
 
-      arrayObjChoices.push(
-        {
-          name: data.server,
-          version,
-          hasRouter,
-          requests: requests ? requests.toFixed(1) : 'N/A',
-          latency: latency ? latency.toFixed(2) : 'N/A',
-          throughput: throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A'
-        }
-      )
-
-      table.push([
-        bold(beBold, chalk.blue(data.server)),
-        bold(beBold, version),
-        bold(beBold, hasRouter ? '✓' : '✗'),
-        bold(beBold, requests ? requests.toFixed(1) : 'N/A'),
-        bold(beBold, latency ? latency.toFixed(2) : 'N/A'),
-        bold(beBold, throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A')
-      ])
-    })
-
-  console.log(table.toString())
-  writeFileSync('benchmark-results.json', JSON.stringify(arrayObjChoices), 'utf8')
-} else if (commander.percentage) {
-  let data = []
-  choices.forEach(file => {
-    let content = readFileSync(`${resultsPath}/${file}.json`)
-    data.push(JSON.parse(content.toString()))
-  })
-  data.sort((a, b) => {
-    return parseFloat(b.requests.mean) - parseFloat(a.requests.mean)
-  })
-  const base = Object.assign({}, {
-    name: data[0].server,
-    request: data[0].requests.mean,
-    latency: data[0].latency.mean,
-    throughput: data[0].throughput.mean
-  })
-  const table = new Table({
-    head: [
-      '',
-      'Version',
-      'Router',
-      `Requests/s\n(% of ${base.name})`,
-      `Latency\n(% of ${base.name})`,
-      `Throughput/Mb\n(% of ${base.name})`
-    ]
-  })
-  const arrayObjChoices = []
-  data.forEach(result => {
+  for (const result of results) {
     const beBold = result.server === 'fastify'
-    const { hasRouter = false, version } = info(result.server) || {}
-    const getPct = (base, value) => ((value / base * 100).toFixed(2))
+    const { hasRouter, version } = info(result.server) || {}
+    const {
+      requests: { average: requests },
+      latency: { average: latency },
+      throughput: { average: throughput }
+    } = result
 
-    arrayObjChoices.push(
+    outputResults.push(
       {
         name: result.server,
         version,
         hasRouter,
-        requests: result.requests.mean,
-        latency: result.latency.mean,
-        throughput: (result.throughput.mean / 1024 / 1024).toFixed(2)
+        requests: requests ? requests.toFixed(1) : 'N/A',
+        latency: latency ? latency.toFixed(2) : 'N/A',
+        throughput: formatThroughput(throughput)
       }
     )
 
     table.push([
       bold(beBold, chalk.blue(result.server)),
       bold(beBold, version),
-      bold(beBold, hasRouter ? '✓' : '✗'),
-      bold(beBold, `${result.requests.mean}\n(${getPct(base.request, result.requests.mean)})`),
-      bold(beBold, `${result.latency.mean}\n(${getPct(base.latency, result.latency.mean)})`),
-      bold(beBold, `${(result.throughput.mean / 1024 / 1024).toFixed(2)}\n(${getPct(base.throughput, result.throughput.mean)})`)
+      bold(beBold, formatHasRouter(hasRouter)),
+      bold(beBold, requests ? requests.toFixed(1) : 'N/A'),
+      bold(beBold, latency ? latency.toFixed(2) : 'N/A'),
+      bold(beBold, throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A')
     ])
-  })
+  }
+  writeFileSync('benchmark-results.json', JSON.stringify(outputResults), 'utf8')
+  return table.toString()
+}
 
-  console.log(table.toString())
-  writeFileSync('benchmark-results.json', JSON.stringify(arrayObjChoices), 'utf8')
-} else {
-  inquirer.prompt([{
+async function compareResultsInteractive () {
+  let choices = getAvailableResults()
+
+  const firstChoice = await inquirer.prompt([{
     type: 'list',
     name: 'choice',
     message: 'What\'s your first pick?',
     choices
-  }]).then((firstChoice) => {
-    choices = choices.filter(choice => choice !== firstChoice.choice)
-    inquirer.prompt([{
-      type: 'list',
-      name: 'choice',
-      message: 'What\'s your second one?',
-      choices
-    }]).then((secondChoice) => {
-      const [a, b] = [firstChoice.choice, secondChoice.choice]
-      const result = compare(a, b)
-      if (result === true) {
-        console.log(chalk.green.bold(`${a} and ${b} both are fast!`))
-      } else {
-        const fastest = chalk.bold.yellow(result.fastest)
-        const fastestAverage = chalk.green(result.fastestAverage)
-        const slowest = chalk.bold.yellow(result.slowest)
-        const slowestAverage = chalk.green(result.slowestAverage)
-        const diff = chalk.bold.green(result.diff)
+  }])
 
-        console.log(`
+  choices = choices.filter(choice => choice !== firstChoice.choice)
+
+  const secondChoice = await inquirer.prompt([{
+    type: 'list',
+    name: 'choice',
+    message: 'What\'s your second one?',
+    choices
+  }])
+
+  const [a, b] = [firstChoice.choice, secondChoice.choice]
+  const result = compare(a, b)
+
+  const fastest = chalk.bold.yellow(result.fastest)
+  const fastestAverage = chalk.green(result.fastestAverage)
+  const slowest = chalk.bold.yellow(result.slowest)
+  const slowestAverage = chalk.green(result.slowestAverage)
+  const diff = chalk.bold.green(result.diff)
+
+  if (result === true) {
+    console.log(chalk.green.bold(`${a} and ${b} both are fast!`))
+    return
+  }
+
+  console.log(`
  ${chalk.blue('Both are awesome but')} ${fastest} ${chalk.blue('is')} ${diff} ${chalk.blue('faster than')} ${slowest}
  • ${fastest} ${chalk.blue('request average is')} ${fastestAverage}
  • ${slowest} ${chalk.blue('request average is')} ${slowestAverage}`)
-      }
-    })
-  })
+}
+
+function bold (writeBold, str) {
+  return writeBold ? chalk.bold(str) : str
 }
