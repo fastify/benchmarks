@@ -18,6 +18,6 @@ const loadingTime = process.hrtime(start)
 server.listen(0, () => {
   const listenTime = process.hrtime(start)
   const path = require('path')
-  require('fs').writeFileSync(path.join(__dirname,`${routes}-${path.basename(__filename)}.txt`),`${loadingTime} | ${listenTime}\n`,{encoding: 'utf-8',flag:'a'})
+  require('fs').writeFileSync(path.join(__dirname, `${routes}-${path.basename(__filename)}.txt`), `${loadingTime} | ${listenTime}\n`, { encoding: 'utf-8', flag: 'a' })
   server.close()
 })
