@@ -18,8 +18,8 @@ for (const r of results) {
   };
   lines.forEach((x) => {
     const [startup, listen] = x.split("|");
-    temp.startup += readableHRTimeMs(startup.trim().split(",").map(x=>parseInt(x)));
-    temp.listen += readableHRTimeMs(listen.trim().split(",").map(x=>parseInt(x)));
+    temp.startup += readableHRTimeMs(startup.split(",").map(x=>parseInt(x)));
+    temp.listen += readableHRTimeMs(listen.split(",").map(x=>parseInt(x)));
   });
   resultObj[r.replace(".txt", "")] = {
     startup: temp.startup / lines.length,
