@@ -17,8 +17,8 @@ function updateReadme (startupResults) {
 * __listen:__ time elapsed until the http server is ready to accept requests (cold start)
 ${startupResults}
 `
-  const md = fs.readFileSync('README.md', 'utf8')
-  fs.writeFileSync('README.md', md.split('# Metrics')[0] + benchmarkMd, 'utf8')
+  const md = fs.readFileSync('METRICS.md', 'utf8')
+  fs.writeFileSync('METRICS.md', md.split('# Metrics')[0] + benchmarkMd, 'utf8')
 }
 
 const results = fs.readdirSync(__dirname).filter((x) => x.endsWith('.txt'))
@@ -43,7 +43,7 @@ for (const r of results) {
 }
 
 if (process.argv.length >= 3 && process.argv[2] === '-u') {
-  console.debug('Updating README...')
+  console.debug('Updating METRICS...')
   updateReadme(md)
 }
 console.log(md)

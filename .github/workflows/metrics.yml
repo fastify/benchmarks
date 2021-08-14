@@ -1,0 +1,34 @@
+name: Node Metrics
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: run benchmarks
+      run: |
+        npm install
+    - name: commit benchmarks
+      run: |
+        npm run metrics:run
+        npm run metrics:summary
+    - name: commit and push updated results
+      uses: github-actions-x/commit@v2.8
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: 'chore: update metrics results'
+        force-add: 'true'
+        files: README.md
+        name: Github Actions
+        email: <>
