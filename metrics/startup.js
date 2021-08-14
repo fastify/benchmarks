@@ -3,12 +3,12 @@
 const { Worker } = require('worker_threads')
 const path = require('path')
 
-const minSamples = 5;
+const minSamples = 5
 
 const runSample = (cb) => {
   return async () => {
     for (let i = 0; i < minSamples; ++i) {
-      await cb();
+      await cb()
     }
   }
 }
@@ -16,7 +16,7 @@ const runSample = (cb) => {
 const measureStartupListen = runSample(() => {
   return new Promise((resolve) => {
     new Worker(path.join(__dirname, './startup-listen.js'))
-      .on('exit', resolve);
+      .on('exit', resolve)
   })
 })
 
