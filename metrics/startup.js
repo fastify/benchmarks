@@ -1,49 +1,55 @@
 'use strict'
 
-const benchmark = require('benchmark')
-
-const suite = new benchmark.Suite()
 const { Worker } = require('worker_threads')
 const path = require('path')
 
-suite.add('raw startup', function (deferred) {
-  new Worker(path.join(__dirname, './startup-listen.js')).on('exit', () => {
-    deferred.resolve()
+const minSamples = 5;
+
+const runSample = (cb) => {
+  return async () => {
+    for (let i = 0; i < minSamples; ++i) {
+      await cb();
+    }
+  }
+}
+
+const measureStartupListen = runSample(() => {
+  return new Promise((resolve) => {
+    new Worker(path.join(__dirname, './startup-listen.js'))
+      .on('exit', resolve);
   })
-}, { defer: true })
-
-for (let i = 1; i <= 10000; i *= 10) {
-  suite.add(`startup with ${i} raw routes`, function (deferred) {
-    new Worker(
-      path.join(__dirname, './startup-routes.js'),
-      {
-        env: {
-          routes: i
-        }
-      }
-    ).on('exit', () => {
-      deferred.resolve()
-    })
-  }, { defer: true })
-}
-
-for (let i = 1; i <= 10000; i *= 10) {
-  suite.add(`startup with ${i} querystring schema routes`, function (deferred) {
-    new Worker(
-      path.join(__dirname, './startup-routes-schema.js'),
-      {
-        env: {
-          routes: i
-        }
-      }
-    ).on('exit', () => {
-      deferred.resolve()
-    })
-  }, { defer: true })
-}
-
-suite.on('cycle', (event) => {
-  console.info(String(event.target))
 })
 
-suite.run({ async: false })
+const measureStartupNRoutes = runSample(async () => {
+  for (let n = 1; n <= 10000; n *= 10) {
+    await new Promise((resolve) => {
+      new Worker(
+        path.join(__dirname, './startup-routes.js'),
+        {
+          env: {
+            routes: n
+          }
+        }
+      ).on('exit', resolve)
+    })
+  }
+})
+
+const measureStartupNSchemaRoutes = runSample(async () => {
+  for (let n = 1; n <= 10000; n *= 10) {
+    await new Promise((resolve) => {
+      new Worker(
+        path.join(__dirname, './startup-routes-schema.js'),
+        {
+          env: {
+            routes: n
+          }
+        }
+      ).on('exit', resolve)
+    })
+  }
+})
+
+measureStartupListen()
+  .then(measureStartupNRoutes)
+  .then(measureStartupNSchemaRoutes)
