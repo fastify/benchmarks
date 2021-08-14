@@ -82,8 +82,10 @@ benchmark [arguments (optional)]
 # Metrics
 * __Machine:__ linux x64 | 6 vCPUs | 15.6GB Mem
 * __Node:__ `v14.15.4`
-* __Run:__ Sat Aug 14 2021 18:35:56 GMT-0300 (Brasilia Standard Time)
+* __Run:__ Sat Aug 14 2021 18:43:21 GMT-0300 (Brasilia Standard Time)
 * __Method:__ `npm run metrics` (samples: 5)
+* __startup:__ time elapsed to setup the application
+* __listen:__ time elapsed until the http server is ready to accept requests (cold start)
 
 | | startup | listen |
 |-| -       | -      |

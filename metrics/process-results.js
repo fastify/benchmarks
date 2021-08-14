@@ -13,6 +13,8 @@ function updateReadme (startupResults) {
 * __Node:__ \`${process.version}\`
 * __Run:__ ${new Date()}
 * __Method:__ \`npm run metrics\` (samples: 5)
+* __startup:__ time elapsed to setup the application
+* __listen:__ time elapsed until the http server is ready to accept requests (cold start)
 ${startupResults}
 `
   const md = fs.readFileSync('README.md', 'utf8')
