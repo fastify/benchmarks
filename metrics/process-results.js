@@ -24,7 +24,7 @@ ${startupResults}
 const results = fs.readdirSync(__dirname).filter((x) => x.endsWith('.txt'))
 
 let md = `
-| | startup | listen |
+| | startup(ms) | listen(ms) |
 |-| -       | -      |`
 
 for (const r of results) {
@@ -39,7 +39,7 @@ for (const r of results) {
     temp.startup += readableHRTimeMs(startup.split(',').map(x => parseInt(x)))
     temp.listen += readableHRTimeMs(listen.split(',').map(x => parseInt(x)))
   })
-  md += `\n| ${r.replace('.txt', '')} | ${temp.startup / lines.length} | ${temp.listen / lines.length} |`
+  md += `\n| ${r.replace('.txt', '')} | ${(temp.startup / lines.length).toFixed(2)} | ${(temp.listen / lines.length).toFixed(2)} |`
 }
 
 if (process.argv.length >= 3 && process.argv[2] === '-u') {
