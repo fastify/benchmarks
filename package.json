@@ -7,7 +7,9 @@
     "start": "node benchmark.js",
     "compare": "node benchmark.js compare --",
     "test": "standard | snazzy",
-    "standard": "standard | snazzy"
+    "standard": "standard | snazzy",
+    "metrics:run": "node metrics/startup.js",
+    "metrics:summary": "node metrics/process-results.js -u"
   },
   "bin": {
     "benchmark": "./benchmark.js"
@@ -28,6 +30,7 @@
     "@leizm/web": "^2.6.0",
     "autocannon": "^7.0.1",
     "autocannon-compare": "^0.4.0",
+    "benchmark": "^2.1.4",
     "chalk": "^4.1.0",
     "cli-table": "^0.3.1",
     "commander": "^8.0.0",
