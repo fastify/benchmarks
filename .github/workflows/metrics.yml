@@ -14,14 +14,17 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: 12
-    - name: run benchmarks
+        node-version: 14
+
+    - name: install dependencies
       run: |
         npm install
-    - name: commit benchmarks
+
+    - name: run metrics
       run: |
         npm run metrics:run
         npm run metrics:summary
+
     - name: commit and push updated results
       uses: github-actions-x/commit@v2.8
       with:
@@ -29,6 +32,6 @@ jobs:
         push-branch: 'master'
         commit-message: 'chore: update metrics results'
         force-add: 'true'
-        files: README.md
+        files: METRICS.md
         name: Github Actions
         email: <>
