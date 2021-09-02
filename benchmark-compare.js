@@ -62,29 +62,31 @@ ${compareResults(true)}
 }
 
 function compareResults (markdown) {
-  const tableStyle = !markdown ? {} : {
-    chars: {
-      top: '',
-      'top-left': '',
-      'top-mid': '',
-      'top-right': '',
-      bottom: '',
-      'bottom-left': '',
-      'bottom-mid': '',
-      'bottom-right': '',
-      mid: '',
-      'left-mid': '',
-      'mid-mid': '',
-      'right-mid': '',
-      left: '|',
-      right: '|',
-      middle: '|'
-    },
-    style: {
-      border: [],
-      head: []
-    }
-  }
+  const tableStyle = !markdown
+    ? {}
+    : {
+        chars: {
+          top: '',
+          'top-left': '',
+          'top-mid': '',
+          'top-right': '',
+          bottom: '',
+          'bottom-left': '',
+          'bottom-mid': '',
+          'bottom-right': '',
+          mid: '',
+          'left-mid': '',
+          'mid-mid': '',
+          'right-mid': '',
+          left: '|',
+          right: '|',
+          middle: '|'
+        },
+        style: {
+          border: [],
+          head: []
+        }
+      }
 
   const table = new Table({
     ...tableStyle,
@@ -96,7 +98,7 @@ function compareResults (markdown) {
   }
 
   const results = getAvailableResults().map(file => {
-    let content = readFileSync(`${resultsPath}/${file}.json`)
+    const content = readFileSync(`${resultsPath}/${file}.json`)
     return JSON.parse(content.toString())
   }).sort((a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean))
 
