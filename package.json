@@ -31,7 +31,7 @@
     "autocannon": "^7.0.1",
     "autocannon-compare": "^0.4.0",
     "benchmark": "^2.1.4",
-    "chalk": "^5.0.0",
+    "chalk": "^4.1.0",
     "cli-table": "^0.3.1",
     "commander": "^8.0.0",
     "connect": "^3.6.6",
