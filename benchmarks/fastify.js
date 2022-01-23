@@ -21,4 +21,4 @@ fastify.get('/', schema, function (req, reply) {
   reply.send({ hello: 'world' })
 })
 
-fastify.listen(3000)
+fastify.listen(3000, '127.0.0.1')
