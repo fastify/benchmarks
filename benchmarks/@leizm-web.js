@@ -1,8 +1,8 @@
 'use strict'
 
-const Connect = require('@leizm/web').Connect
+const Application = require('@leizm/web').Application
 
-const app = new Connect()
+const app = new Application()
 
 app.use('/', function (ctx) {
   ctx.response.json({ hello: 'world' })
