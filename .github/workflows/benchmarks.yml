@@ -31,7 +31,7 @@ jobs:
         node ./benchmark compare -u
 
     - name: commit and push updated results
-      uses: github-actions-x/commit@v2.8
+      uses: github-actions-x/commit@v2.9
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
