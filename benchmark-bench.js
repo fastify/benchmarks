@@ -12,7 +12,7 @@ run().catch(err => {
 
 async function run () {
   const options = await getBenchmarkOptions()
-  const modules = options.all ? choices : await select(list)
+  const modules = options.all ? choices : await select()
   return bench(options, modules)
 }
 
