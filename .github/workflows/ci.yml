@@ -16,7 +16,7 @@ jobs:
           persist-credentials: false
 
       - name: Dependency review
-        uses: actions/dependency-review-action@v1
+        uses: actions/dependency-review-action@v2
 
   test:
     runs-on: ubuntu-latest
