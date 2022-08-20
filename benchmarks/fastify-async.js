@@ -16,7 +16,7 @@ const schema = {
     }
 }
 
-fastify.get('/', async (request, reply) => {
+fastify.get('/',schema , async (request, reply) => {
     return { hello: 'world' }
 })
 
