@@ -25,10 +25,10 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "0http": "^3.0.0",
     "@hapi/hapi": "^20.0.1",
     "@leizm/web": "^2.7.0",
     "@trpc/server": "^9.27.2",
-    "0http": "^3.0.0",
     "autocannon": "^7.0.1",
     "autocannon-compare": "^0.4.0",
     "benchmark": "^2.1.4",
@@ -40,7 +40,7 @@
     "dns-prefetch-control": "^0.3.0",
     "egg": "^3.0.0",
     "express": "^4.16.4",
-    "fastify": "^4.5.3",
+    "fastify": "^4.0.2",
     "foxify": "^0.10.20",
     "frameguard": "^4.0.0",
     "hide-powered-by": "^1.0.0",
@@ -72,8 +72,7 @@
     "vapr": "^0.6.0",
     "x-xss-protection": "^2.0.0",
     "yeps": "^1.1.1",
-    "yeps-router": "^1.2.0",
-    "zod": "^3.18.0"
+    "yeps-router": "^1.2.0"
   },
   "devDependencies": {
     "snazzy": "^9.0.0",
