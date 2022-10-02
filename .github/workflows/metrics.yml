@@ -1,42 +1,37 @@
-name: Node benchmarks
+name: Node Metrics
 
 on:
   workflow_dispatch:
   push:
     branches:
       - master
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 0 * * 1'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: 14
 
-    - name: run benchmarks
+    - name: install dependencies
       run: |
         npm install
-        npm start y 100 10 40
 
-    - name: compare results
+    - name: run metrics
       run: |
-        node ./benchmark compare -t
-        node ./benchmark compare -u
+        npm run metrics:run
+        npm run metrics:summary
 
     - name: commit and push updated results
       uses: github-actions-x/commit@v2.9
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
-        commit-message: 'chore: update benchmark results'
+        commit-message: 'chore: update metrics results'
         force-add: 'true'
-        files: benchmark-results.json README.md
+        files: METRICS.md
         name: Github Actions
         email: <>

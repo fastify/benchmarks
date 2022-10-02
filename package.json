@@ -7,7 +7,9 @@
     "start": "node benchmark.js",
     "compare": "node benchmark.js compare --",
     "test": "standard | snazzy",
-    "standard": "standard | snazzy"
+    "standard": "standard | snazzy",
+    "metrics:run": "node metrics/startup.js",
+    "metrics:summary": "node metrics/process-results.js -u"
   },
   "bin": {
     "benchmark": "./benchmark.js"
@@ -25,18 +27,20 @@
   "dependencies": {
     "0http": "^3.0.0",
     "@hapi/hapi": "^20.0.1",
-    "@leizm/web": "^2.6.0",
+    "@leizm/web": "^2.7.0",
+    "@trpc/server": "^9.27.2",
     "autocannon": "^7.0.1",
     "autocannon-compare": "^0.4.0",
-    "chalk": "^4.1.0",
+    "benchmark": "^2.1.4",
+    "chalk": "^4.1.2",
     "cli-table": "^0.3.1",
-    "commander": "^7.0.0",
+    "commander": "^9.0.0",
     "connect": "^3.6.6",
     "cors": "^2.8.5",
     "dns-prefetch-control": "^0.3.0",
-    "egg": "^2.19.0",
+    "egg": "^3.0.0",
     "express": "^4.16.4",
-    "fastify": "^3.0.0",
+    "fastify": "^4.0.2",
     "foxify": "^0.10.20",
     "frameguard": "^4.0.0",
     "h3": "^0.7.21",
@@ -46,12 +50,12 @@
     "inquirer": "^8.0.0",
     "koa": "^2.7.0",
     "koa-isomorphic-router": "^1.0.0",
-    "koa-router": "^10.0.0",
+    "koa-router": "^12.0.0",
     "make-promises-safe": "^5.1.0",
     "micro": "^9.3.3",
     "micro-route": "^2.5.0",
     "microrouter": "^3.1.3",
-    "ora": "^5.1.0",
+    "ora": "^5.4.1",
     "polka": "^0.5.2",
     "polkadot": "^1.0.0",
     "rayo": "^1.2.9",
@@ -73,6 +77,6 @@
   },
   "devDependencies": {
     "snazzy": "^9.0.0",
-    "standard": "^12.0.1"
+    "standard": "^17.0.0"
   }
 }
