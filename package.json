@@ -43,6 +43,7 @@
     "fastify": "^4.0.2",
     "foxify": "^0.10.20",
     "frameguard": "^4.0.0",
+    "h3": "^0.8.1",
     "hide-powered-by": "^1.0.0",
     "hsts": "^2.1.0",
     "ienoopen": "^1.0.0",
