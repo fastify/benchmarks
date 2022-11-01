@@ -1,6 +1,6 @@
 'use strict'
-const { createApp } = require('@istanbul/app')
-const { createHttpServer, createRouter } = require('@istanbul/http')
+const { createApp } = require('@galatajs/app')
+const { createHttpServer, createRouter } = require('@galatajs/http')
 
 const app = createApp()
 const server = createHttpServer()

@@ -27,8 +27,8 @@
   "dependencies": {
     "0http": "^3.0.0",
     "@hapi/hapi": "^20.0.1",
-    "@istanbul/app": "^0.0.33",
-    "@istanbul/http": "^0.0.24",
+    "@galatajs/app": "^0.1.1",
+    "@galatajs/http": "^0.1.1",
     "@leizm/web": "^2.7.0",
     "@trpc/server": "^9.27.2",
     "autocannon": "^7.0.1",
