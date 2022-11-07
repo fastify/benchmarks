@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "0http": "^3.0.0",
-    "@hapi/hapi": "^20.0.1",
+    "@hapi/hapi": "^21.0.0",
     "@galatajs/app": "^0.1.1",
     "@galatajs/http": "^0.1.1",
     "@leizm/web": "^2.7.0",
