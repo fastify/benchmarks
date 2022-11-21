@@ -62,7 +62,7 @@
     "polkadot": "^1.0.0",
     "rayo": "^1.2.9",
     "restana": "^4.8.0",
-    "restify": "^8.0.0",
+    "restify": "^9.0.0",
     "router": "^1.3.3",
     "server-base": "^7.1.23",
     "server-base-router": "^7.1.23",
