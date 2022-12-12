@@ -30,7 +30,7 @@
     "@galatajs/app": "^0.1.1",
     "@galatajs/http": "^0.1.1",
     "@leizm/web": "^2.7.0",
-    "@trpc/server": "^9.27.2",
+    "@trpc/server": "^10.5.0",
     "autocannon": "^7.0.1",
     "autocannon-compare": "^0.4.0",
     "benchmark": "^2.1.4",
