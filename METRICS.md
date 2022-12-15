@@ -1,21 +1,21 @@
 # Metrics
 * __Machine:__ linux x64 | 2 vCPUs | 6.8GB Mem
 * __Node:__ `v18.12.1`
-* __Run:__ Wed Dec 14 2022 09:23:26 GMT+0000 (Coordinated Universal Time)
+* __Run:__ Thu Dec 15 2022 15:29:05 GMT+0000 (Coordinated Universal Time)
 * __Method:__ `npm run metrics` (samples: 5)
 * __startup:__ time elapsed to setup the application
 * __listen:__ time elapsed until the http server is ready to accept requests (cold start)
 
 | | startup(ms) | listen(ms) |
 |-| -       | -      |
-| 1-startup-routes-schema.js | 170.73 | 242.35 |
-| 1-startup-routes.js | 175.52 | 188.55 |
-| 10-startup-routes-schema.js | 169.60 | 250.01 |
-| 10-startup-routes.js | 188.30 | 204.51 |
-| 100-startup-routes-schema.js | 187.01 | 387.84 |
-| 100-startup-routes.js | 199.67 | 228.67 |
-| 1000-startup-routes-schema.js | 451.69 | 1726.63 |
-| 1000-startup-routes.js | 457.32 | 658.44 |
-| 10000-startup-routes-schema.js | 7408.56 | 22028.27 |
-| 10000-startup-routes.js | 7377.59 | 10789.92 |
-| startup-listen.js | 175.62 | 189.08 |
+| 1-startup-routes-schema.js | 133.05 | 187.31 |
+| 1-startup-routes.js | 128.43 | 138.59 |
+| 10-startup-routes-schema.js | 137.06 | 204.20 |
+| 10-startup-routes.js | 131.48 | 143.62 |
+| 100-startup-routes-schema.js | 149.61 | 316.99 |
+| 100-startup-routes.js | 146.42 | 168.82 |
+| 1000-startup-routes-schema.js | 353.47 | 1462.34 |
+| 1000-startup-routes.js | 324.66 | 457.75 |
+| 10000-startup-routes-schema.js | 6584.63 | 18357.39 |
+| 10000-startup-routes.js | 5509.50 | 8803.31 |
+| startup-listen.js | 127.08 | 138.54 |
