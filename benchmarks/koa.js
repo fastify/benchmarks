@@ -10,5 +10,5 @@ app.use(ctx => {
 const _server = app.listen(3000)
 
 process.on('SIGINT', () => {
-  _server.close();
+  _server.close()
 })
