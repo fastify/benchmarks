@@ -1,11 +1,14 @@
 'use strict'
 
 const Koa = require('koa')
-
 const app = new Koa()
 
-app.use(async function (ctx) {
+app.use(ctx => {
   ctx.body = { hello: 'world' }
 })
 
-app.listen(3000)
+const _server = app.listen(3000)
+
+process.on('SIGINT', () => {
+  _server.close()
+})
