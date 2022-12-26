@@ -1,8 +1,8 @@
 'use strict'
 
-const inquirer = require('inquirer')
-const bench = require('./lib/bench')
-const { choices, list } = require('./lib/packages')
+import inquirer from 'inquirer'
+import bench from './lib/bench.js'
+import { choices, list } from './lib/packages.js'
 const argv = process.argv.slice(2)
 
 run().catch(err => {
