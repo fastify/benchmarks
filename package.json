@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Benchmarks for Fastify, a fast and low-overhead web framework.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node benchmark.js",
     "compare": "node benchmark.js compare --",
@@ -23,6 +24,9 @@
       "url": "https://github.com/aichholzer"
     }
   ],
+  "standard": {
+    "ignore": ["lib/packages.js"]
+  },
   "license": "MIT",
   "dependencies": {
     "0http": "^3.4.2",

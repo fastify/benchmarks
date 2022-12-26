@@ -1,32 +1,32 @@
 #!/usr/bin/env node
 'use strict'
 
-const os = require('os')
-const commander = require('commander')
-const inquirer = require('inquirer')
-const Table = require('cli-table')
-const chalk = require('chalk')
-const { join } = require('path')
-const { readdirSync, readFileSync, writeFileSync } = require('fs')
-const { info } = require('./lib/packages')
-const { compare } = require('./lib/autocannon')
+import { platform, arch, cpus, totalmem } from 'os'
+import { option, opts as _opts } from 'commander'
+import { prompt } from 'inquirer'
+import Table from 'cli-table'
+import { level, red, blue, bold as _bold, green } from 'chalk'
+import { join } from 'path'
+import { readdirSync, readFileSync, writeFileSync } from 'fs'
+import { info } from './lib/packages'
+import { compare } from './lib/autocannon'
 
 const resultsPath = join(process.cwd(), 'results')
 
-commander
-  .option('-t, --table', 'print table')
+option('-t, --table', 'print table')
   .option('-m --markdown', 'format table for markdown')
   .option('-u --update', 'update README.md')
   .parse(process.argv)
 
-const opts = commander.opts()
+const opts = _opts()
 
 if (opts.markdown || opts.update) {
-  chalk.level = 0
+  // eslint-disable-next-line no-unused-vars, no-import-assign
+  level = 0
 }
 
 if (!getAvailableResults().length) {
-  console.log(chalk.red('Benchmark to gather some results to compare.'))
+  console.log(red('Benchmark to gather some results to compare.'))
 } else if (opts.update) {
   updateReadme()
 } else if (opts.table) {
@@ -47,7 +47,7 @@ function formatHasRouter (hasRouter) {
 }
 
 function updateReadme () {
-  const machineInfo = `${os.platform()} ${os.arch()} | ${os.cpus().length} vCPUs | ${(os.totalmem() / (1024 ** 3)).toFixed(1)}GB Mem`
+  const machineInfo = `${platform()} ${arch()} | ${cpus().length} vCPUs | ${(totalmem() / (1024 ** 3)).toFixed(1)}GB Mem`
   const benchmarkMd = `# Benchmarks
 
 * __Machine:__ ${machineInfo}
@@ -126,7 +126,7 @@ function compareResults (markdown) {
     )
 
     table.push([
-      bold(beBold, chalk.blue(result.server)),
+      bold(beBold, blue(result.server)),
       bold(beBold, version),
       bold(beBold, formatHasRouter(hasRouter)),
       bold(beBold, requests ? requests.toFixed(1) : 'N/A'),
@@ -141,7 +141,7 @@ function compareResults (markdown) {
 async function compareResultsInteractive () {
   let choices = getAvailableResults()
 
-  const firstChoice = await inquirer.prompt([{
+  const firstChoice = await prompt([{
     type: 'list',
     name: 'choice',
     message: 'What\'s your first pick?',
@@ -150,7 +150,7 @@ async function compareResultsInteractive () {
 
   choices = choices.filter(choice => choice !== firstChoice.choice)
 
-  const secondChoice = await inquirer.prompt([{
+  const secondChoice = await prompt([{
     type: 'list',
     name: 'choice',
     message: 'What\'s your second one?',
@@ -160,23 +160,23 @@ async function compareResultsInteractive () {
   const [a, b] = [firstChoice.choice, secondChoice.choice]
   const result = compare(a, b)
 
-  const fastest = chalk.bold.yellow(result.fastest)
-  const fastestAverage = chalk.green(result.fastestAverage)
-  const slowest = chalk.bold.yellow(result.slowest)
-  const slowestAverage = chalk.green(result.slowestAverage)
-  const diff = chalk.bold.green(result.diff)
+  const fastest = _bold.yellow(result.fastest)
+  const fastestAverage = green(result.fastestAverage)
+  const slowest = _bold.yellow(result.slowest)
+  const slowestAverage = green(result.slowestAverage)
+  const diff = _bold.green(result.diff)
 
   if (result === true) {
-    console.log(chalk.green.bold(`${a} and ${b} both are fast!`))
+    console.log(green.bold(`${a} and ${b} both are fast!`))
     return
   }
 
   console.log(`
- ${chalk.blue('Both are awesome but')} ${fastest} ${chalk.blue('is')} ${diff} ${chalk.blue('faster than')} ${slowest}
- • ${fastest} ${chalk.blue('request average is')} ${fastestAverage}
- • ${slowest} ${chalk.blue('request average is')} ${slowestAverage}`)
+ ${blue('Both are awesome but')} ${fastest} ${blue('is')} ${diff} ${blue('faster than')} ${slowest}
+ • ${fastest} ${blue('request average is')} ${fastestAverage}
+ • ${slowest} ${blue('request average is')} ${slowestAverage}`)
 }
 
 function bold (writeBold, str) {
-  return writeBold ? chalk.bold(str) : str
+  return writeBold ? _bold(str) : str
 }
