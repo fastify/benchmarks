@@ -24,6 +24,9 @@
       "url": "https://github.com/aichholzer"
     }
   ],
+  "standard": {
+    "ignore": ["lib/packages.js"]
+  },
   "license": "MIT",
   "dependencies": {
     "0http": "^3.4.2",
