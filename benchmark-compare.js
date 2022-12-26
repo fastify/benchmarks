@@ -21,6 +21,7 @@ option('-t, --table', 'print table')
 const opts = _opts()
 
 if (opts.markdown || opts.update) {
+  // eslint-disable-next-line no-unused-vars, no-import-assign
   level = 0
 }
 
