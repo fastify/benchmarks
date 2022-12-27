@@ -9,8 +9,8 @@
     "compare": "node benchmark.js compare --",
     "test": "standard | snazzy",
     "standard": "standard | snazzy",
-    "metrics:run": "node metrics/startup.js",
-    "metrics:summary": "node metrics/process-results.js -u"
+    "metrics:run": "node metrics/startup.cjs",
+    "metrics:summary": "node metrics/process-results.cjs -u"
   },
   "bin": {
     "benchmark": "./benchmark.js"
