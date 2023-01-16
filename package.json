@@ -40,7 +40,7 @@
     "benchmark": "^2.1.4",
     "chalk": "^5.2.0",
     "cli-table": "^0.3.11",
-    "commander": "^9.4.1",
+    "commander": "^10.0.0",
     "connect": "^3.7.0",
     "cors": "^2.8.5",
     "dns-prefetch-control": "^0.3.0",
