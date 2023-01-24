@@ -64,7 +64,7 @@
     "polka": "^0.5.2",
     "polkadot": "^1.0.0",
     "restana": "^4.9.7",
-    "restify": "^10.0.0",
+    "restify": "^11.0.0",
     "router": "^1.3.7",
     "server-base": "^7.1.32",
     "server-base-router": "^7.1.32",
