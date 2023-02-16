@@ -1,6 +1,6 @@
 'use strict'
 
-const { AppServer } = require('mini-express-serve')
+const { AppServer } = require('mini-express-server')
 
 const app = new AppServer()
 
