@@ -45,6 +45,14 @@
         "throughput": "6.81"
     },
     {
+        "name": "mini-express-server",
+        "version": "1.1.3",
+        "hasRouter": true,
+        "requests": "38064.81",
+        "latency": "25.77",
+        "throughput": "7.46"
+    },
+    {
         "name": "server-base-router",
         "version": "7.1.32",
         "hasRouter": true,
@@ -169,12 +177,28 @@
         "throughput": "3.45"
     },
     {
+        "name": "mini-express-server-with-middlewares",
+        "version": "1.1.3",
+        "hasRouter": true,
+        "requests": "19026.8",
+        "latency": "52.04",
+        "throughput": "7.5"
+    },
+    {
         "name": "yeps-router",
         "version": "1.2.0",
         "hasRouter": true,
         "requests": "12155.2",
         "latency": "81.73",
         "throughput": "2.17"
+    },
+    {
+        "name": "mini-express-server-big-json",
+        "version": "1.1.3",
+        "hasRouter": true,
+        "requests": "11578.2",
+        "latency": "85.8",
+        "throughput": "19.5"
     },
     {
         "name": "express",
