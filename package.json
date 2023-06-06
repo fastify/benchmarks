@@ -25,7 +25,9 @@
     }
   ],
   "standard": {
-    "ignore": ["lib/packages.js"]
+    "ignore": [
+      "lib/packages.js"
+    ]
   },
   "license": "MIT",
   "dependencies": {
@@ -46,6 +48,7 @@
     "dns-prefetch-control": "^0.3.0",
     "express": "^4.18.2",
     "fastify": "^4.10.2",
+    "fets": "^0.2.2",
     "foxify": "^0.10.20",
     "frameguard": "^4.0.0",
     "h3": "^1.0.2",
@@ -70,6 +73,7 @@
     "server-base-router": "^7.1.32",
     "spirit": "^0.6.1",
     "spirit-router": "^0.5.0",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v20.30.0",
     "take-five": "^2.0.0",
     "total.js": "^3.4.13",
     "vapr": "^0.6.0",
