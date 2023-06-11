@@ -35,6 +35,9 @@ benchmark [arguments (optional)]
 
 * `-h`: Help on how to use the tool.
 * `compare`: Get comparative data for your benchmarks.
+* `bench`:  Benchmark one, multiple or all modules.
+
+> Create benchmark before comparing; `benchmark bench`
 
 > You may also compare all test results, at once, in a single table; `benchmark compare -t`
 
