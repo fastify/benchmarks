@@ -1,6 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-const os = require('os')
+const fs = require('node:fs')
+const path = require('node:path')
+const os = require('node:os')
 
 function readableHRTimeMs (diff) {
   return (diff[0] * 1e9 + diff[1]) / 1000000

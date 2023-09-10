@@ -1,4 +1,4 @@
-require('http')
+require('node:http')
   .createServer(
     require('server-base-router')({
       '@setup' (ctx) {

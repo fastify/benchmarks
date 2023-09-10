@@ -1,6 +1,6 @@
 'use strict'
 
-const http = require('http')
+const http = require('node:http')
 
 const { adapter } = require('spirit').node
 const route = require('spirit-router')
