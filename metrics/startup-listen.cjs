@@ -7,6 +7,6 @@ const loadingTime = process.hrtime(start)
 
 server.listen({ port: 3000 }, () => {
   const listenTime = process.hrtime(start)
-  require('fs').writeFileSync(`${__filename}.txt`, `${loadingTime} | ${listenTime}\n`, { encoding: 'utf-8', flag: 'a' })
+  require('node:fs').writeFileSync(`${__filename}.txt`, `${loadingTime} | ${listenTime}\n`, { encoding: 'utf-8', flag: 'a' })
   server.close()
 })

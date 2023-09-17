@@ -1,7 +1,7 @@
 'use strict'
 
-const { Worker } = require('worker_threads')
-const path = require('path')
+const { Worker } = require('node:worker_threads')
+const path = require('node:path')
 
 const minSamples = 5
 

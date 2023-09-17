@@ -8,4 +8,4 @@ app.get('/', () => [
   [JSON.stringify({ hello: 'world' })]
 ])
 
-require('http').createServer(app).listen(3000)
+require('node:http').createServer(app).listen(3000)
