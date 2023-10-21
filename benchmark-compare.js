@@ -57,7 +57,7 @@ function updateReadme () {
 ${compareResults(true)}
 `
   const md = readFileSync('README.md', 'utf8')
-  writeFileSync('README.md', md.split('# Benchmarks')[0] + benchmarkMd, 'utf8')
+  writeFileSync('README.md', md.split('# Benchmarks', 1)[0] + benchmarkMd, 'utf8')
 }
 
 function compareResults (markdown) {
