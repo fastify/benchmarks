@@ -18,7 +18,7 @@ function updateReadme (startupResults) {
 ${startupResults}
 `
   const md = fs.readFileSync('METRICS.md', 'utf8')
-  fs.writeFileSync('METRICS.md', md.split('# Metrics')[0] + benchmarkMd, 'utf8')
+  fs.writeFileSync('METRICS.md', md.split('# Metrics', 1)[0] + benchmarkMd, 'utf8')
 }
 
 const results = fs.readdirSync(__dirname).filter((x) => x.endsWith('.txt'))
