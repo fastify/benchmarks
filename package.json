@@ -33,6 +33,7 @@
   "dependencies": {
     "@galatajs/app": "^0.1.1",
     "@galatajs/http": "^0.1.2",
+    "@geut/fastify-uws": "^2.0.1",
     "@hapi/hapi": "^21.1.0",
     "@leizm/web": "^2.7.3",
     "@trpc/server": "^10.7.0",
