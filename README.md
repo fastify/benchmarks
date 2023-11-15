@@ -19,6 +19,12 @@
 * This package shows how fast it is comparatively.
 * For metrics (cold-start) see [metrics.md](./METRICS.md)
 
+# Requirements
+
+* Active usage: At least 500 downloads per week
+* Active repository (at least one event -comment, issue, PR- in the last week)
+* The framework must use the Node.js HTTP module
+
 # Installing
 
 ```
@@ -49,17 +55,22 @@ benchmark [arguments (optional)]
 |                          | Version | Router | Requests/s | Latency (ms) | Throughput/Mb |
 | :--                      | --:     | --:    | :-:        | --:          | --:           |
 | bare                     | 10.13.0 | ✗      | 46077.6    | 21.19        | 8.22          |
+| spirit                   | 0.6.1   | ✗      | 45994.4    | 21.22        | 8.20          |
 | fastify                  | 4.24.3  | ✓      | 45958.4    | 21.24        | 8.24          |
 | polka                    | 0.5.2   | ✓      | 45950.4    | 21.26        | 8.19          |
+| spirit-router            | 0.5.0   | ✓      | 45384.8    | 21.56        | 8.09          |
 | connect                  | 3.7.0   | ✗      | 44778.4    | 21.84        | 7.99          |
 | server-base-router       | 7.1.32  | ✓      | 44053.6    | 22.18        | 7.86          |
 | rayo                     | 1.4.5   | ✓      | 43756.8    | 22.34        | 7.80          |
 | server-base              | 7.1.32  | ✗      | 43396.0    | 22.54        | 7.74          |
+| yeps                     | 1.1.1   | ✗      | 42203.2    | 23.19        | 7.53          |
 | connect-router           | 1.3.8   | ✓      | 41486.4    | 23.62        | 7.40          |
 | polkadot                 | 1.0.0   | ✗      | 40974.4    | 23.91        | 7.31          |
+| vapr                     | 0.6.0   | ✓      | 40787.2    | 24.01        | 6.69          |
 | h3                       | 1.8.2   | ✗      | 40456.0    | 24.22        | 6.64          |
 | h3-router                | 1.8.2   | ✓      | 39198.4    | 25.01        | 6.43          |
 | 0http                    | 3.5.2   | ✓      | 38226.4    | 25.67        | 6.82          |
+| yeps-router              | 1.2.0   | ✓      | 36628.8    | 26.81        | 6.53          |
 | koa                      | 2.14.2  | ✗      | 36143.4    | 27.15        | 6.45          |
 | restify                  | 11.1.0  | ✓      | 34253.4    | 28.67        | 6.17          |
 | take-five                | 2.0.0   | ✓      | 34231.6    | 28.72        | 12.31         |
@@ -72,6 +83,7 @@ benchmark [arguments (optional)]
 | express                  | 4.18.2  | ✓      | 10714.2    | 92.73        | 1.91          |
 | express-with-middlewares | 4.18.2  | ✓      | 10156.6    | 97.86        | 3.78          |
 | foxify                   | 0.10.20 | ✓      | N/A        | N/A          | N/A           |
+| galatajs                 | 0.1.1   | ✓      | N/A        | N/A          | N/A           |
 | micro-route              | 2.5.0   | ✓      | N/A        | N/A          | N/A           |
 | micro                    | 10.0.1  | ✗      | N/A        | N/A          | N/A           |
 | microrouter              | 3.1.3   | ✓      | N/A        | N/A          | N/A           |
