@@ -19,6 +19,13 @@
 * This package shows how fast it is comparatively.
 * For metrics (cold-start) see [metrics.md](./METRICS.md)
 
+# Requirements
+
+To be included in this list, the framework should captivate users' interest. We have identified the following minimal requirements:
+- **Ensure active usage**: a minimum of 500 downloads per week
+- **Maintain an active repository** with at least one event (comment, issue, PR) in the last month
+- The framework must use the **Node.js** HTTP module
+
 # Installing
 
 ```
