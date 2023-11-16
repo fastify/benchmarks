@@ -47,7 +47,6 @@
     "dns-prefetch-control": "^0.3.0",
     "express": "^4.18.2",
     "fastify": "^4.10.2",
-    "foxify": "^0.10.20",
     "frameguard": "^4.0.0",
     "h3": "^1.0.2",
     "hide-powered-by": "^1.1.0",
@@ -72,7 +71,6 @@
     "server-base": "^7.1.32",
     "server-base-router": "^7.1.32",
     "take-five": "^2.0.0",
-    "total.js": "^3.4.13",
     "x-xss-protection": "^2.0.0"
   },
   "devDependencies": {
