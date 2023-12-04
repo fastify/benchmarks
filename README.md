@@ -49,36 +49,36 @@ benchmark [arguments (optional)]
 # Benchmarks
 
 * __Machine:__ linux x64 | 4 vCPUs | 15.6GB Mem
-* __Node:__ `v20.9.0`
-* __Run:__ Mon Nov 27 2023 01:33:13 GMT+0000 (Coordinated Universal Time)
+* __Node:__ `v20.10.0`
+* __Run:__ Mon Dec 04 2023 01:33:41 GMT+0000 (Coordinated Universal Time)
 * __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure)
 
-|                          | Version | Router | Requests/s | Latency (ms) | Throughput/Mb |
-| :--                      | --:     | --:    | :-:        | --:          | --:           |
-| bare                     | 10.13.0 | ✗      | 45044.8    | 21.71        | 8.03          |
-| fastify                  | 4.24.3  | ✓      | 44659.2    | 21.91        | 8.01          |
-| polka                    | 0.5.2   | ✓      | 44119.4    | 22.17        | 7.87          |
-| connect                  | 3.7.0   | ✗      | 43981.6    | 22.22        | 7.84          |
-| server-base-router       | 7.1.32  | ✓      | 43435.2    | 22.52        | 7.75          |
-| server-base              | 7.1.32  | ✗      | 43054.4    | 22.72        | 7.68          |
-| rayo                     | 1.4.5   | ✓      | 42653.6    | 22.93        | 7.61          |
-| polkadot                 | 1.0.0   | ✗      | 41756.0    | 23.44        | 7.45          |
-| connect-router           | 1.3.8   | ✓      | 41262.4    | 23.73        | 7.36          |
-| h3-router                | 1.9.0   | ✓      | 38831.2    | 25.25        | 6.37          |
-| h3                       | 1.9.0   | ✗      | 38489.6    | 25.48        | 6.31          |
-| 0http                    | 3.5.2   | ✓      | 37093.2    | 26.46        | 6.62          |
-| koa                      | 2.14.2  | ✗      | 36380.6    | 26.97        | 6.49          |
-| take-five                | 2.0.0   | ✓      | 34109.6    | 28.81        | 12.26         |
-| restify                  | 11.1.0  | ✓      | 33354.4    | 29.49        | 6.01          |
-| koa-isomorphic-router    | 1.0.1   | ✓      | 33325.2    | 29.52        | 5.94          |
-| koa-router               | 12.0.1  | ✓      | 32477.0    | 30.27        | 5.79          |
-| restana                  | 4.9.7   | ✓      | 31064.8    | 31.68        | 5.54          |
-| hapi                     | 21.3.2  | ✓      | 30663.2    | 32.10        | 5.47          |
-| hono                     | 3.10.2  | ✓      | 12102.4    | 82.06        | 2.16          |
-| fastify-big-json         | 4.24.3  | ✓      | 11181.6    | 88.86        | 128.65        |
-| express                  | 4.18.2  | ✓      | 10587.0    | 93.83        | 1.89          |
-| express-with-middlewares | 4.18.2  | ✓      | 9813.3     | 101.31       | 3.65          |
-| micro-route              | 2.5.0   | ✓      | N/A        | N/A          | N/A           |
-| micro                    | 10.0.1  | ✗      | N/A        | N/A          | N/A           |
-| microrouter              | 3.1.3   | ✓      | N/A        | N/A          | N/A           |
-| trpc-router              | 10.44.1 | ✓      | N/A        | N/A          | N/A           |
+|                          | Version  | Router | Requests/s | Latency (ms) | Throughput/Mb |
+| :--                      | --:      | --:    | :-:        | --:          | --:           |
+| polkadot                 | 1.0.0    | ✗      | 51724.0    | 18.82        | 9.22          |
+| h3                       | 1.9.0    | ✗      | 47936.8    | 20.36        | 7.86          |
+| h3-router                | 1.9.0    | ✓      | 47672.8    | 20.48        | 7.82          |
+| 0http                    | 3.5.2    | ✓      | 45813.6    | 21.34        | 8.17          |
+| fastify                  | 4.24.3   | ✓      | 44984.0    | 21.75        | 8.06          |
+| bare                     | v20.10.0 | ✗      | 44759.2    | 21.85        | 7.98          |
+| polka                    | 0.5.2    | ✓      | 43760.0    | 22.35        | 7.80          |
+| rayo                     | 1.4.5    | ✓      | 43424.8    | 22.53        | 7.74          |
+| connect                  | 3.7.0    | ✗      | 43190.4    | 22.65        | 7.70          |
+| server-base-router       | 7.1.32   | ✓      | 42632.8    | 22.95        | 7.60          |
+| server-base              | 7.1.32   | ✗      | 42348.8    | 23.12        | 7.55          |
+| hono                     | 3.10.5   | ✓      | 42121.6    | 23.24        | 7.51          |
+| restana                  | 4.9.7    | ✓      | 41964.0    | 23.33        | 7.48          |
+| connect-router           | 1.3.8    | ✓      | 40480.0    | 24.20        | 7.22          |
+| koa                      | 2.14.2   | ✗      | 35264.6    | 27.85        | 6.29          |
+| take-five                | 2.0.0    | ✓      | 33815.4    | 29.07        | 12.16         |
+| koa-isomorphic-router    | 1.0.1    | ✓      | 33436.2    | 29.43        | 5.96          |
+| restify                  | 11.1.0   | ✓      | 32902.0    | 29.88        | 5.93          |
+| koa-router               | 12.0.1   | ✓      | 32286.6    | 30.47        | 5.76          |
+| hapi                     | 21.3.2   | ✓      | 29118.4    | 33.83        | 5.19          |
+| fastify-big-json         | 4.24.3   | ✓      | 11163.4    | 89.00        | 128.43        |
+| express                  | 4.18.2   | ✓      | 10642.0    | 93.37        | 1.90          |
+| express-with-middlewares | 4.18.2   | ✓      | 9944.0     | 99.91        | 3.70          |
+| micro-route              | 2.5.0    | ✓      | N/A        | N/A          | N/A           |
+| micro                    | 10.0.1   | ✗      | N/A        | N/A          | N/A           |
+| microrouter              | 3.1.3    | ✓      | N/A        | N/A          | N/A           |
+| trpc-router              | 10.44.1  | ✓      | N/A        | N/A          | N/A           |
