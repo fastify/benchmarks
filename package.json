@@ -13,9 +13,12 @@
     "metrics:summary": "node metrics/process-results.cjs -u"
   },
   "bin": {
-    "benchmark": "./benchmark.js"
+    "benchmark": "benchmark.js"
   },
-  "repository": "https://github.com/fastify/benchmarks.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fastify/benchmarks.git"
+  },
   "author": "Çağatay Çalı",
   "contributors": [
     {
