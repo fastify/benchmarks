@@ -54,7 +54,7 @@
     "frameguard": "^4.0.0",
     "h3": "^1.10.0",
     "hide-powered-by": "^1.1.0",
-    "hono": "^3.10.3",
+    "hono": "^4.0.1",
     "hsts": "^2.2.0",
     "ienoopen": "^1.1.1",
     "inquirer": "^9.1.4",
