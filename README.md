@@ -26,16 +26,12 @@ To be included in this list, the framework should captivate users' interest. We 
 - **Maintain an active repository** with at least one event (comment, issue, PR) in the last month
 - The framework must use the **Node.js** HTTP module
 
-# Installing
-
-```
-npm i -g fastify-benchmarks
-```
-
 # Usage
 
+Clone this repo. Then 
+
 ```
-benchmark [arguments (optional)]
+node ./benchmark [arguments (optional)]
 ```
 
 #### Arguments
