@@ -40,7 +40,7 @@
     "@tinyhttp/app": "^2.2.1",
     "@trpc/server": "^10.7.0",
     "0http": "^3.4.2",
-    "autocannon": "^7.10.0",
+    "autocannon": "^8.0.0",
     "autocannon-compare": "^0.4.0",
     "benchmark": "^2.1.4",
     "chalk": "^5.2.0",
