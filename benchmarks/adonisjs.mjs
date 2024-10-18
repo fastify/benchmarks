@@ -6,8 +6,8 @@ import { Encryption } from '@adonisjs/encryption'
 import { Application } from '@adonisjs/application'
 
 const app = new Application(new URL('./', import.meta.url), {
-	environment: 'web',
-	importer: () => {},
+  environment: 'web',
+  importer: () => {}
 })
 
 await app.init()
@@ -15,15 +15,15 @@ await app.init()
 const encryption = new Encryption({ secret: 'averylongrandom32charslongsecret' })
 
 const server = new Server(
-	app,
-	encryption,
-	new Emitter(app),
-	new Logger({ enabled: false }),
-	defineConfig({})
+  app,
+  encryption,
+  new Emitter(app),
+  new Logger({ enabled: false }),
+  defineConfig({})
 )
 
 server.getRouter().get('/', async (ctx) => {
-	return ctx.response.send({ hello: 'world' })
+  return ctx.response.send({ hello: 'world' })
 })
 
 await server.boot()
