@@ -22,7 +22,7 @@ const server = new Server(
   defineConfig({})
 )
 
-server.getRouter().get('/', async (ctx) => {
+server.getRouter().get('/', (ctx) => {
   return ctx.response.send({ hello: 'world' })
 })
 
