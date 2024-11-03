@@ -28,7 +28,7 @@ To be included in this list, the framework should captivate users' interest. We 
 
 # Usage
 
-Clone this repo. Then 
+Clone this repo. Then
 
 ```
 node ./benchmark [arguments (optional)]
