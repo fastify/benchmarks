@@ -1,5 +1,3 @@
-'use strict'
-
 import inquirer from 'inquirer'
 import bench from './lib/bench.js'
 import { choices, list } from './lib/packages.js'

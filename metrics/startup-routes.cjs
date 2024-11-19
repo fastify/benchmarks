@@ -1,3 +1,5 @@
+'use strict'
+
 const start = process.hrtime()
 
 const fastify = require('fastify')

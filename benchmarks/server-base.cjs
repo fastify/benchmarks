@@ -1,3 +1,5 @@
+'use strict'
+
 require('server-base')({
   '@setup' (ctx) {
     ctx.middlewareFunctions = []

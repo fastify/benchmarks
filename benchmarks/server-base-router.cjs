@@ -1,3 +1,5 @@
+'use strict'
+
 require('node:http')
   .createServer(
     require('server-base-router')({
