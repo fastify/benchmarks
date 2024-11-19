@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-'use strict'
 
 import { platform, arch, cpus, totalmem } from 'os'
 import { program } from 'commander'
