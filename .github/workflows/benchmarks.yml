@@ -16,26 +16,31 @@ concurrency:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-    - uses: actions/checkout@v4
+    - name: Check out repo
+      uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: 20
 
-    - name: run benchmarks
-      run: |
-        npm install
-        npm start y 100 10 40
+    - name: Install dependencies
+      run: npm i
 
-    - name: compare results
+    - name: Run benchmarks
+      run: npm start y 100 10 40
+
+    - name: Compare results
       run: |
         node ./benchmark compare -t
         node ./benchmark compare -u
 
-    - name: commit and push updated results
+    - name: Commit and push updated results
       uses: github-actions-x/commit@v2.9
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
