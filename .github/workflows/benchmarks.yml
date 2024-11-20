@@ -9,6 +9,11 @@ on:
     # * is a special character in YAML so you have to quote this string
     - cron:  '0 0 * * 1'
 
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: "${{ github.workflow }}"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
