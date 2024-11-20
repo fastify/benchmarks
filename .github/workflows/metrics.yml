@@ -13,24 +13,27 @@ concurrency:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
+
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
         node-version: 20
 
-    - name: install dependencies
-      run: |
-        npm install
+    - name: Install dependencies
+      run: npm i
 
-    - name: run metrics
+    - name: Run metrics
       run: |
         npm run metrics:run
         npm run metrics:summary
 
-    - name: commit and push updated results
+    - name: Commit and push updated results
       uses: github-actions-x/commit@v2.9
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
