@@ -47,6 +47,7 @@ jobs:
         push-branch: 'master'
         commit-message: 'chore: update benchmark results'
         force-add: 'true'
+        rebase: 'true'
         files: benchmark-results.json README.md
         name: Github Actions
         email: <>
