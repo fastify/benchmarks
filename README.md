@@ -38,7 +38,8 @@ Disclosure](https://img.shields.io/badge/Security-Responsible%20Disclosure-yello
 # TL;DR
 
 * [Fastify](https://github.com/fastify/fastify) is a fast and low overhead web framework for Node.js.
-* This package shows how fast it is comparatively.
+* This package shows how fast it is compared to other JS frameworks: these benchmarks do not pretend to represent a real-world scenario, but they give a **good indication of the framework overhead**.
+* The benchmarks are run automatically on GitHub actions, which means they run on virtual hardwardware that can suffer from the "noisy neighbor" effect; this means that the results can vary.
 * For metrics (cold-start) see [metrics.md](./METRICS.md)
 
 # Requirements
