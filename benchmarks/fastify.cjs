@@ -17,7 +17,7 @@ const schema = {
   }
 }
 
-fastify.get('/', schema, function (req, reply) {
+fastify.get('/', schema, function (_req, reply) {
   reply.send({ hello: 'world' })
 })
 

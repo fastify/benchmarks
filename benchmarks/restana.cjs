@@ -4,7 +4,7 @@ const restana = require('restana')
 
 const app = restana()
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.send({ hello: 'world' })
 })
 

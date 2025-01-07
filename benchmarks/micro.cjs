@@ -4,7 +4,7 @@ const http = require('http')
 const { serve } = require('micro')
 
 const server = new http.Server(
-  serve(async function (req, res) {
+  serve(async function () {
     return { hello: 'world' }
   })
 )

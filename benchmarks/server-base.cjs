@@ -5,7 +5,7 @@ require('server-base')({
     ctx.middlewareFunctions = []
   },
   '/': {
-    get (req, res) {
+    get (_req, res) {
       res.setHeader('content-type', 'application/json; charset=utf-8')
       res.json({ hello: 'world' })
     }

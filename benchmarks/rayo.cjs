@@ -5,7 +5,7 @@ async function run () {
 
   const app = rayo({ port: 3000 })
 
-  app.get('/', (req, res) => {
+  app.get('/', (_req, res) => {
     res.setHeader('content-type', 'application/json; charset=utf-8')
     res.end(JSON.stringify({ hello: 'world' }))
   })
