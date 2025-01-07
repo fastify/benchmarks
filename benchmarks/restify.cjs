@@ -3,7 +3,7 @@
 const restify = require('restify')
 
 const server = restify.createServer()
-server.get('/', function (req, res, next) {
+server.get('/', function (_req, res, next) {
   res.send({ hello: 'world' })
   return next()
 })

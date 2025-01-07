@@ -2,7 +2,7 @@ import { App } from '@tinyhttp/app'
 
 const app = new App()
 
-app.get('/', (_, res) => {
+app.get('/', (_req, res) => {
   res.send('Hello World!')
 })
 

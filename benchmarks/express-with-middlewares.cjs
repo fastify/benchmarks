@@ -15,7 +15,7 @@ app.use(require('hsts')())
 app.use(require('ienoopen')())
 app.use(require('x-xss-protection')())
 
-app.get('/', function (req, res) {
+app.get('/', function (_req, res) {
   res.json({ hello: 'world' })
 })
 
