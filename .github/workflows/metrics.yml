@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -38,7 +38,7 @@ jobs:
       uses: github-actions-x/commit@v2.9
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: 'master'
+        push-branch: 'main'
         commit-message: 'chore: update metrics results'
         force-add: 'true'
         rebase: 'true'
