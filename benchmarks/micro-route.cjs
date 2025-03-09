@@ -1,6 +1,6 @@
 'use strict'
 
-const http = require('http')
+const http = require('node:http')
 const { send, serve } = require('micro')
 const dispatch = require('micro-route/dispatch')
 

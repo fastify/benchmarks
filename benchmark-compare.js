@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import { platform, arch, cpus, totalmem } from 'os'
+import { platform, arch, cpus, totalmem } from 'node:os'
 import { program } from 'commander'
 import inquirer from 'inquirer'
 import Table from 'cli-table'
 import chalk from 'chalk'
-import { join } from 'path'
-import { readdirSync, readFileSync, writeFileSync } from 'fs'
+import { join } from 'node:path'
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { info } from './lib/packages.js'
 import { compare } from './lib/autocannon.js'
 
