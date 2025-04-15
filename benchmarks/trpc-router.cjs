@@ -7,7 +7,7 @@ const fastify = require('fastify')()
 // https://trpc.io/docs/v11/router
 const t = initTRPC.create()
 const appRouter = t.router({
-  hello: t.procedure.query(() => {
+  '': t.procedure.query(() => {
     return { hello: 'world' }
   })
 })
