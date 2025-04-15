@@ -9,7 +9,7 @@ const t = initTRPC.create()
 const appRouter = t.router({
   hello: t.procedure.query(() => {
     return { hello: 'world' }
-  }),
+  })
 })
 
 fastify.register(fastifyTRPCPlugin, {
