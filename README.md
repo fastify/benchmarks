@@ -34,8 +34,8 @@ benchmark [arguments (optional)]
 #### Arguments
 
 * `-h`: Help on how to use the tool.
-* `compare`: Get comparative data for your benchmarks.
 * `bench`:  Benchmark one or more modules.
+* `compare`: Get comparative data for your benchmarks.
 
 > Create benchmark before comparing; `benchmark bench`
 
