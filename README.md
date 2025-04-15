@@ -60,7 +60,10 @@ node ./benchmark [arguments (optional)]
 #### Arguments
 
 * `-h`: Help on how to use the tool.
+* `bench`:  Benchmark one or more modules.
 * `compare`: Get comparative data for your benchmarks.
+
+> Create benchmark before comparing; `benchmark bench`
 
 > You may also compare all test results, at once, in a single table; `benchmark compare -t`
 
