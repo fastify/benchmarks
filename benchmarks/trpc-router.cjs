@@ -1,18 +1,16 @@
 'use strict'
 
-const trpc = require('@trpc/server')
+const { initTRPC } = require('@trpc/server')
 const { fastifyTRPCPlugin } = require('@trpc/server/adapters/fastify')
-
 const fastify = require('fastify')()
 
-// https://trpc.io/docs/v9/router
-const appRouter = trpc
-  .router()
-  .query('', {
-    resolve: () => {
-      return { hello: 'world' }
-    }
-  })
+// https://trpc.io/docs/v11/router
+const t = initTRPC.create()
+const appRouter = t.router({
+  hello: t.procedure.query(() => {
+    return { hello: 'world' }
+  }),
+})
 
 fastify.register(fastifyTRPCPlugin, {
   prefix: '',
