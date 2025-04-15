@@ -77,7 +77,7 @@ node ./benchmark [arguments (optional)]
 
 |                          | Version  | Router | Requests/s | Latency (ms) | Throughput/Mb |
 | :--                      | --:      | --:    | :-:        | --:          | --:           |
-| bare                     | v20.19.0 | ✗      | 46845.0    | 20.84        | 8.35          |
+| node-http                | v20.19.0 | ✗      | 46845.0    | 20.84        | 8.35          |
 | 0http                    | 4.2.0    | ✓      | 46751.2    | 20.90        | 8.34          |
 | connect                  | 3.7.0    | ✗      | 45852.8    | 21.30        | 8.18          |
 | fastify                  | 5.3.0    | ✓      | 45700.8    | 21.37        | 8.19          |
