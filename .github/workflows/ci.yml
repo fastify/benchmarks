@@ -50,7 +50,7 @@ jobs:
         run: npm i --ignore-scripts
 
       - name: Run tests
-        run: npm test
+        run: npm test && npm start
 
   automerge:
     name: Automerge Dependabot PRs
