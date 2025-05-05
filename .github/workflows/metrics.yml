@@ -31,7 +31,7 @@ jobs:
         node-version: 20
 
     - name: Install dependencies
-      run: npm i
+      run: npm i --ignore-scripts
 
     - name: Run metrics
       run: |

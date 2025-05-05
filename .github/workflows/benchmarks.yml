@@ -34,7 +34,7 @@ jobs:
         node-version: 20
 
     - name: Install dependencies
-      run: npm i
+      run: npm i --ignore-scripts
 
     - name: Run benchmarks
       run: npm start y 100 10 40
