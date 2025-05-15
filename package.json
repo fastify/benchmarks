@@ -79,6 +79,7 @@
     "router": "^2.2.0",
     "server-base": "^7.1.32",
     "server-base-router": "^7.1.32",
+    "srvx": "^0.7.1",
     "take-five": "^2.0.0",
     "x-xss-protection": "^2.0.0"
   },
