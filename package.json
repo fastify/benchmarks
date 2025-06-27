@@ -65,7 +65,7 @@
     "hsts": "^2.2.0",
     "ienoopen": "^1.1.1",
     "inquirer": "^12.1.0",
-    "koa": "^2.14.1",
+    "koa": "^3.0.0",
     "micro": "^10.0.1",
     "micro-route": "^2.5.0",
     "microrouter": "^3.1.3",
