@@ -23,6 +23,8 @@ jobs:
     steps:
     - name: Check out repo
       uses: actions/checkout@v5
+      with:
+        persist-credentials: false
 
     - name: Setup Node
       uses: actions/setup-node@v4
