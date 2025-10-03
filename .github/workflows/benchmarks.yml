@@ -30,7 +30,7 @@ jobs:
         persist-credentials: false
 
     - name: Setup Node
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         check-latest: true
         node-version: 20
