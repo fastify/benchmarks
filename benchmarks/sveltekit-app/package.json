@@ -1,0 +1,7 @@
+{
+  "name": "sveltekit-benchmark",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  }
+}
