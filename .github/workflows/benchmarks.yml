@@ -38,6 +38,10 @@ jobs:
     - name: Install dependencies
       run: npm i --ignore-scripts
 
+    - name: Build SvelteKit
+      working-directory: benchmarks/sveltekit-app
+      run: npm run build
+
     - name: Run benchmarks
       run: npm start y 100 10 40
 

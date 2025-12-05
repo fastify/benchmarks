@@ -159,3 +159,6 @@ profile*
 
 # benchmark results
 results
+
+benchmarks/sveltekit-app/build/
+benchmarks/sveltekit-app/.svelte-kit/
