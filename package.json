@@ -72,7 +72,7 @@
     "restana": "^5.0.0",
     "restify": "^11.0.0",
     "router": "^2.2.0",
-    "srvx": "^0.9.4",
+    "srvx": "^0.10.0",
     "x-xss-protection": "^2.0.0"
   },
   "devDependencies": {
