@@ -55,7 +55,7 @@
     "connect": "^3.7.0",
     "cors": "^2.8.5",
     "dns-prefetch-control": "^0.3.0",
-    "express": "^5.0.0",
+    "express": "^5.2.1",
     "fastify": "^5.0.0",
     "frameguard": "^4.0.0",
     "h3": "^1.10.0",
