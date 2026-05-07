@@ -23,20 +23,11 @@ permissions:
   contents: read
 
 jobs:
-  dependency-review:
-    name: Dependency Review
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
+  quality-check:
+    uses: fastify/workflows/.github/workflows/nested-quality.yml@v6
     permissions:
       contents: read
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-
-      - name: Dependency review
-        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
+    secrets: inherit
 
   test:
     name: Test
@@ -70,7 +61,7 @@ jobs:
         github.event_name == 'pull_request' &&
         github.event.pull_request.head.repo.full_name == github.repository &&
         github.event.pull_request.user.login == 'dependabot[bot]'
-    needs: test
+    needs: [quality-check, test]
     permissions:
       pull-requests: write
       contents: write
