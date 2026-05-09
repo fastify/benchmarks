@@ -8,6 +8,10 @@ updates:
 
   - package-ecosystem: "npm"
     directory: "/"
+    groups:
+      adonisjs:
+        patterns:
+          - "@adonisjs/*"
     schedule:
       interval: "monthly"
     open-pull-requests-limit: 10
