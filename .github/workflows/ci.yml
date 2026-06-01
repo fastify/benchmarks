@@ -27,7 +27,6 @@ jobs:
     uses: fastify/workflows/.github/workflows/nested-quality.yml@v6
     permissions:
       contents: read
-    secrets: inherit
 
   test:
     name: Test
