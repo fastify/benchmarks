@@ -1,10 +1,6 @@
 import { FastResponse, serve } from 'srvx'
 
 serve({
-  fetch: () => FastResponse.json({ hello: 'world' }, {
-    headers: {
-      'content-type': 'application/json; charset=utf-8'
-    }
-  }),
+  fetch: () => FastResponse.json({ hello: 'world' }),
   port: 3000
 })
