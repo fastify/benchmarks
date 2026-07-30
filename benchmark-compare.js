@@ -101,7 +101,7 @@ function compareResults (markdown) {
   }).sort((a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean))
 
   const outputResults = []
-  const formatThroughput = throughput => throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A'
+  const round = (value, decimals) => value ? Math.round(value * 10 ** decimals) / 10 ** decimals : null
 
   for (const result of results) {
     const beBold = result.server === 'fastify'
@@ -117,9 +117,9 @@ function compareResults (markdown) {
         name: result.server,
         version,
         hasRouter,
-        requests: requests ? requests.toFixed(1) : 'N/A',
-        latency: latency ? latency.toFixed(2) : 'N/A',
-        throughput: formatThroughput(throughput)
+        requests: round(requests, 1),
+        latency: round(latency, 2),
+        throughput: round(throughput / 1024 / 1024, 2)
       }
     )
 
