@@ -1,21 +1,21 @@
 # Metrics
 * __Machine:__ linux x64 | 4 vCPUs | 15.6GB Mem
-* __Node:__ `v24.19.0`
-* __Run:__ Mon Aug 24 2026 06:56:51 GMT+0000 (Coordinated Universal Time)
+* __Node:__ `v24.20.0`
+* __Run:__ Tue Sep 01 2026 08:34:21 GMT+0000 (Coordinated Universal Time)
 * __Method:__ `npm run metrics` (samples: 5)
 * __startup:__ time elapsed to setup the application
 * __listen:__ time elapsed until the http server is ready to accept requests (cold start)
 
 | | startup(ms) | listen(ms) |
 |-| -       | -      |
-| 1-startup-routes-schema.cjs | 97.05 | 131.74 |
-| 1-startup-routes.cjs | 94.36 | 105.28 |
-| 10-startup-routes-schema.cjs | 95.45 | 129.45 |
-| 10-startup-routes.cjs | 95.86 | 107.44 |
-| 100-startup-routes-schema.cjs | 102.01 | 140.13 |
-| 100-startup-routes.cjs | 102.15 | 121.71 |
-| 1000-startup-routes-schema.cjs | 193.36 | 259.39 |
-| 1000-startup-routes.cjs | 191.86 | 250.05 |
-| 10000-startup-routes-schema.cjs | 3525.02 | 3724.70 |
-| 10000-startup-routes.cjs | 3224.48 | 4562.00 |
-| startup-listen.cjs | 94.34 | 106.42 |
+| 1-startup-routes-schema.cjs | 91.00 | 123.38 |
+| 1-startup-routes.cjs | 91.32 | 101.63 |
+| 10-startup-routes-schema.cjs | 93.02 | 126.19 |
+| 10-startup-routes.cjs | 93.01 | 104.10 |
+| 100-startup-routes-schema.cjs | 99.98 | 137.21 |
+| 100-startup-routes.cjs | 100.60 | 120.32 |
+| 1000-startup-routes-schema.cjs | 181.26 | 246.66 |
+| 1000-startup-routes.cjs | 185.21 | 244.09 |
+| 10000-startup-routes-schema.cjs | 3532.64 | 3737.25 |
+| 10000-startup-routes.cjs | 3188.74 | 4508.96 |
+| startup-listen.cjs | 98.26 | 109.95 |
