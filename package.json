@@ -60,6 +60,7 @@
     "express": "^5.2.1",
     "fastify": "^5.0.0",
     "frameguard": "^4.0.0",
+    "fulmine.js": "^5.21.5",
     "h3": "2.0.1-rc.32",
     "hide-powered-by": "^1.1.0",
     "hono": "^4.0.1",
@@ -76,6 +77,9 @@
     "router": "^2.2.0",
     "srvx": "^0.12.1",
     "x-xss-protection": "^2.0.0"
+  },
+  "overrides": {
+    "uWebSockets.js": "file:./lib/no-uws"
   },
   "devDependencies": {
     "snazzy": "^9.0.0",
