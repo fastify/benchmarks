@@ -23,6 +23,7 @@ const server = new Server(
   new Emitter(app),
   new Logger({ enabled: false }),
   defineConfig({
+    router: { matcher: 'tree' },
     serializeJSON (v) {
       return JSON.stringify(v)
     }
