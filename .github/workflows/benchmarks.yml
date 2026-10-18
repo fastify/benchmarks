@@ -39,12 +39,16 @@ jobs:
       run: npm i --ignore-scripts
 
     - name: Run benchmarks
-      run: npm start y 100 10 40
+      run: |
+        npm start y 100 10 40
+        npm start y 100 10 40 post
 
     - name: Compare results
       run: |
         node ./benchmark compare -t
         node ./benchmark compare -u
+        node ./benchmark compare -t -s post
+        node ./benchmark compare -u -s post
 
     - name: Commit and push updated results
       uses: github-actions-x/commit@722d56b8968bf00ced78407bbe2ead81062d8baa # v2.9
@@ -54,6 +58,6 @@ jobs:
         commit-message: 'chore: update benchmark results'
         force-add: 'true'
         rebase: 'true'
-        files: benchmark-results.json README.md
+        files: benchmark-results.json benchmark-results-post.json README.md
         name: Github Actions
         email: <>
