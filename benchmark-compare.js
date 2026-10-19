@@ -151,7 +151,7 @@ async function compareResultsInteractive () {
   let choices = getAvailableResults()
 
   const firstChoice = await inquirer.prompt([{
-    type: 'list',
+    type: 'select',
     name: 'choice',
     message: 'What\'s your first pick?',
     choices
@@ -160,7 +160,7 @@ async function compareResultsInteractive () {
   choices = choices.filter(choice => choice !== firstChoice.choice)
 
   const secondChoice = await inquirer.prompt([{
-    type: 'list',
+    type: 'select',
     name: 'choice',
     message: 'What\'s your second one?',
     choices
