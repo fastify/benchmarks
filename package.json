@@ -42,6 +42,7 @@
     "@elysia/node": "^1.4.5",
     "@hapi/hapi": "^21.1.0",
     "@hono/node-server": "^2.0.1",
+    "@koa/bodyparser": "^6.1.0",
     "@koa/router": "^15.1.1",
     "@tinyhttp/app": "^3.0.1",
     "@trpc/server": "^11.1.0",

@@ -68,6 +68,19 @@ node ./benchmark [arguments (optional)]
 > You may also compare all test results, at once, in a single table; `benchmark compare -t`
 
 > You can also extend the comparison table with percentage values based on fastest result; `benchmark compare -p`
+
+#### Scenarios
+
+* `get` (default): `GET /` responding with `{ hello: 'world' }`. Servers live in [`benchmarks/`](./benchmarks).
+* `post`: `POST /` with a `{"hello":"world"}` JSON body, parsed and echoed back. Servers live in [`benchmarks/post/`](./benchmarks/post).
+
+Pass the scenario as the fifth argument when benchmarking non-interactively, and with `-s` when comparing:
+
+```
+node ./benchmark bench y 100 10 40 post
+node ./benchmark compare -t -s post
+```
+
 # Benchmarks
 
 * __Machine:__ linux x64 | 4 vCPUs | 15.6GB Mem
