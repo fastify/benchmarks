@@ -5,7 +5,7 @@ import { program } from 'commander'
 import inquirer from 'inquirer'
 import Table from 'cli-table'
 import chalk from 'chalk'
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { info } from './lib/packages.js'
 import { compare } from './lib/autocannon.js'
 import { headings, names, scenario as getScenario } from './lib/scenarios.js'
@@ -35,6 +35,7 @@ if (!getAvailableResults().length) {
 }
 
 function getAvailableResults () {
+  if (!existsSync(resultsPath)) return []
   return readdirSync(resultsPath)
     .filter((file) => file.match(/(.+)\.json$/))
     .sort()
