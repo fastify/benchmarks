@@ -30,7 +30,7 @@ jobs:
         persist-credentials: false
 
     - name: Setup Node
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
         check-latest: true
         node-version: 24
@@ -39,12 +39,16 @@ jobs:
       run: npm i --ignore-scripts
 
     - name: Run benchmarks
-      run: npm start y 100 10 40
+      run: |
+        npm start y 100 10 40
+        npm start y 100 10 40 post
 
     - name: Compare results
       run: |
         node ./benchmark compare -t
         node ./benchmark compare -u
+        node ./benchmark compare -t -s post
+        node ./benchmark compare -u -s post
 
     - name: Commit and push updated results
       uses: github-actions-x/commit@722d56b8968bf00ced78407bbe2ead81062d8baa # v2.9
@@ -54,6 +58,6 @@ jobs:
         commit-message: 'chore: update benchmark results'
         force-add: 'true'
         rebase: 'true'
-        files: benchmark-results.json README.md
+        files: benchmark-results.json benchmark-results-post.json README.md
         name: Github Actions
         email: <>

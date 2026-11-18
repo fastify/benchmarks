@@ -68,35 +68,66 @@ node ./benchmark [arguments (optional)]
 > You may also compare all test results, at once, in a single table; `benchmark compare -t`
 
 > You can also extend the comparison table with percentage values based on fastest result; `benchmark compare -p`
+
+#### Scenarios
+
+* `get` (default): `GET /` responding with `{ hello: 'world' }`. Servers live in [`benchmarks/`](./benchmarks).
+* `post`: `POST /` with a `{"hello":"world"}` JSON body, parsed and echoed back. Servers live in [`benchmarks/post/`](./benchmarks/post).
+
+Pass the scenario as the fifth argument when benchmarking non-interactively, and with `-s` when comparing:
+
+```
+node ./benchmark bench y 100 10 40 post
+node ./benchmark compare -t -s post
+```
+
 # Benchmarks
 
 * __Machine:__ linux x64 | 4 vCPUs | 15.6GB Mem
-* __Node:__ `v24.21.0`
-* __Run:__ Thu Oct 01 2026 04:08:15 GMT+0000 (Coordinated Universal Time)
+* __Node:__ `v24.22.3`
+* __Run:__ Sat Nov 14 2026 21:09:46 GMT+0000 (Coordinated Universal Time)
 * __Method:__ `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure)
 
-|                          | Version     | Router | Requests/s | Latency (ms) | Throughput/Mb |
-| :--                      | --:         | --:    | :-:        | --:          | --:           |
-| 0http                    | 5.1.1       | ✓      | 57864.8    | 16.76        | 10.32         |
-| restana                  | 6.1.0       | ✓      | 53761.6    | 18.09        | 9.59          |
-| fastify                  | 5.12.5      | ✓      | 50372.8    | 19.33        | 9.03          |
-| node-http                | v24.21.0    | ✗      | 50085.6    | 19.43        | 8.93          |
-| micro                    | 10.0.1      | ✗      | 48633.6    | 20.04        | 8.67          |
-| polka                    | 0.5.2       | ✓      | 48078.4    | 20.34        | 8.57          |
-| adonisjs                 | 9.3.1       | ✓      | 47935.2    | 20.35        | 8.55          |
-| connect                  | 3.7.0       | ✗      | 47097.6    | 20.72        | 8.40          |
-| hono                     | 4.13.9      | ✓      | 45101.6    | 21.67        | 7.40          |
-| connect-router           | 2.2.0       | ✓      | 44486.4    | 22.00        | 7.93          |
-| srvx                     | 0.12.8      | ✗      | 43733.6    | 22.35        | 7.09          |
-| h3                       | 2.0.1-rc.29 | ✓      | 39767.2    | 24.67        | 6.98          |
-| elysia                   | 1.4.30      | ✓      | 39285.6    | 24.93        | 6.44          |
-| koa                      | 3.2.1       | ✗      | 38916.8    | 25.20        | 6.94          |
-| whatwg-node-server       | 0.11.0      | ✗      | 36351.0    | 26.99        | 6.48          |
-| koa-router               | 15.7.0      | ✓      | 35452.6    | 27.70        | 6.32          |
-| restify                  | 12.0.0      | ✓      | 32423.8    | 30.34        | 5.84          |
-| hapi                     | 21.4.10     | ✓      | 31977.8    | 30.79        | 5.70          |
-| express                  | 5.2.1       | ✓      | 27474.4    | 35.89        | 4.90          |
-| microrouter              | 3.1.3       | ✓      | 26219.6    | 37.63        | 4.68          |
-| express-with-middlewares | 5.2.1       | ✓      | 23313.2    | 42.38        | 8.67          |
-| fastify-big-json         | 5.12.5      | ✓      | 14031.2    | 70.71        | 161.43        |
-| trpc-router              | 11.19.0     | ✓      | 10518.2    | 94.48        | 2.40          |
+|                          | Version  | Router | Requests/s | Latency (ms) | Throughput/Mb |
+| :--                      | --:      | --:    | :-:        | --:          | --:           |
+| 0http                    | 5.2.0    | ✓      | 85252.8    | 11.21        | 15.20         |
+| restana                  | 6.1.0    | ✓      | 83182.4    | 11.49        | 14.83         |
+| node-http                | v24.22.3 | ✗      | 81011.2    | 11.98        | 14.45         |
+| polka                    | 0.5.2    | ✓      | 80230.4    | 12.08        | 14.31         |
+| connect                  | 3.7.0    | ✗      | 79144.0    | 12.17        | 14.11         |
+| fastify                  | 5.12.8   | ✓      | 78696.0    | 12.18        | 14.11         |
+| connect-router           | 2.2.0    | ✓      | 74883.2    | 12.80        | 13.35         |
+| hono                     | 4.13.17  | ✓      | 74163.2    | 12.99        | 12.17         |
+| micro                    | 10.0.1   | ✗      | 72540.8    | 13.30        | 12.94         |
+| srvx                     | 1.0.8    | ✗      | 71611.6    | 13.41        | 11.61         |
+| h3                       | 2.0.8    | ✓      | 69174.8    | 13.97        | 12.14         |
+| elysia                   | 1.4.31   | ✓      | 68231.2    | 14.23        | 11.19         |
+| adonisjs                 | 9.3.1    | ✓      | 67820.4    | 14.23        | 12.10         |
+| koa                      | 3.3.0    | ✗      | 57570.4    | 16.87        | 10.27         |
+| restify                  | 12.1.0   | ✓      | 54070.4    | 18.04        | 9.75          |
+| express                  | 5.3.0    | ✓      | 53784.8    | 18.13        | 9.59          |
+| koa-router               | 15.7.1   | ✓      | 52548.8    | 18.52        | 9.37          |
+| hapi                     | 21.4.13  | ✓      | 48864.8    | 19.96        | 8.72          |
+| microrouter              | 3.1.3    | ✓      | 48449.6    | 20.11        | 8.64          |
+| express-with-middlewares | 5.3.0    | ✓      | 45005.6    | 21.71        | 16.74         |
+| fastify-big-json         | 5.12.8   | ✓      | 19882.0    | 49.76        | 228.75        |
+| trpc-router              | 11.25.0  | ✓      | 15073.6    | 65.80        | 3.44          |
+| whatwg-node-server       | 0.13.2   | ✗      | N/A        | N/A          | N/A           |
+
+# POST Benchmarks
+
+* __Machine:__ linux x64 | 4 vCPUs | 15.6GB Mem
+* __Node:__ `v24.22.3`
+* __Run:__ Sat Nov 14 2026 21:09:46 GMT+0000 (Coordinated Universal Time)
+* __Method:__ `autocannon -c 100 -d 40 -p 10 -m POST -H content-type=application/json -b '{"hello":"world"}' localhost:3000` (two rounds; one to warm-up, one to measure)
+
+|           | Version  | Router | Requests/s | Latency (ms) | Throughput/Mb |
+| :--       | --:      | --:    | :-:        | --:          | --:           |
+| node-http | v24.22.3 | ✗      | 55476.8    | 17.53        | 9.89          |
+| fastify   | 5.12.8   | ✓      | 47248.0    | 20.64        | 8.47          |
+| hono      | 4.13.17  | ✓      | 39976.0    | 24.50        | 6.56          |
+| h3        | 2.0.8    | ✓      | 39675.2    | 24.74        | 6.96          |
+| express   | 5.3.0    | ✓      | 27924.4    | 35.30        | 4.98          |
+| koa       | 3.3.0    | ✗      | 26721.2    | 36.91        | 4.77          |
+| restify   | 12.1.0   | ✓      | 26605.6    | 37.08        | 4.80          |
+| hapi      | 21.4.13  | ✓      | 20005.6    | 49.47        | 3.57          |

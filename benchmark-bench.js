@@ -1,6 +1,7 @@
 import inquirer from 'inquirer'
 import bench from './lib/bench.js'
 import { choices, list } from './lib/packages.js'
+import { names, servers } from './lib/scenarios.js'
 const argv = process.argv.slice(2)
 
 run().catch(err => {
@@ -10,7 +11,8 @@ run().catch(err => {
 
 async function run () {
   const options = await getBenchmarkOptions()
-  const modules = options.all ? choices : await select()
+  const available = servers(options.scenario)
+  const modules = options.all ? choices.filter(c => available.has(c)) : await select(available)
   return bench(options, modules)
 }
 
@@ -22,6 +24,13 @@ async function getBenchmarkOptions () {
       name: 'all',
       message: 'Do you want to run all benchmark tests?',
       default: false
+    },
+    {
+      type: 'list',
+      name: 'scenario',
+      message: 'Which scenario do you want to run?',
+      choices: names,
+      default: 'get'
     },
     {
       type: 'input',
@@ -57,16 +66,17 @@ async function getBenchmarkOptions () {
 }
 
 function parseArgv () {
-  const [all, connections, pipelining, duration] = argv
+  const [all, connections, pipelining, duration, scenario = 'get'] = argv
   return {
     all: all === 'y',
     connections: +connections,
     pipelining: +pipelining,
-    duration: +duration
+    duration: +duration,
+    scenario
   }
 }
 
-async function select () {
+async function select (available) {
   const result = await inquirer.prompt([
     {
       type: 'checkbox',
@@ -74,9 +84,9 @@ async function select () {
       name: 'list',
       choices: [
         new inquirer.Separator(' = The usual ='),
-        ...list(),
+        ...list().filter(c => available.has(c.name)),
         new inquirer.Separator(' = The extras = '),
-        ...list(true)
+        ...list(true).filter(c => available.has(c.name))
       ],
       validate: function (answer) {
         if (answer.length < 1) {

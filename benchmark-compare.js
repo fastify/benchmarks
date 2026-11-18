@@ -5,19 +5,20 @@ import { program } from 'commander'
 import inquirer from 'inquirer'
 import Table from 'cli-table'
 import chalk from 'chalk'
-import { join } from 'node:path'
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { info } from './lib/packages.js'
 import { compare } from './lib/autocannon.js'
-
-const resultsPath = join(process.cwd(), 'results')
+import { headings, names, scenario as getScenario } from './lib/scenarios.js'
 
 program.option('-t, --table', 'print table')
   .option('-m --markdown', 'format table for markdown')
   .option('-u --update', 'update README.md')
+  .option('-s --scenario <name>', `scenario to compare (${names.join(', ')})`, 'get')
   .parse(process.argv)
 
 const opts = program.opts()
+const scenario = getScenario(opts.scenario)
+const resultsPath = scenario.resultsDirectory
 
 if (opts.markdown || opts.update) {
   chalk.level = 0
@@ -34,6 +35,7 @@ if (!getAvailableResults().length) {
 }
 
 function getAvailableResults () {
+  if (!existsSync(resultsPath)) return []
   return readdirSync(resultsPath)
     .filter((file) => file.match(/(.+)\.json$/))
     .sort()
@@ -46,17 +48,27 @@ function formatHasRouter (hasRouter) {
 
 function updateReadme () {
   const machineInfo = `${platform()} ${arch()} | ${cpus().length} vCPUs | ${(totalmem() / (1024 ** 3)).toFixed(1)}GB Mem`
-  const benchmarkMd = `# Benchmarks
+  const benchmarkMd = `${scenario.heading}
 
 * __Machine:__ ${machineInfo}
 * __Node:__ \`${process.version}\`
 * __Run:__ ${new Date()}
-* __Method:__ \`autocannon -c 100 -d 40 -p 10 localhost:3000\` (two rounds; one to warm-up, one to measure)
+* __Method:__ \`${scenario.method}\` (two rounds; one to warm-up, one to measure)
 
 ${compareResults(true)}
 `
   const md = readFileSync('README.md', 'utf8')
-  writeFileSync('README.md', md.split('# Benchmarks', 1)[0] + benchmarkMd, 'utf8')
+  const start = md.indexOf(scenario.heading)
+  if (start === -1) {
+    writeFileSync('README.md', `${md.trimEnd()}\n\n${benchmarkMd}`, 'utf8')
+    return
+  }
+  // Replace only this scenario's section, up to the next scenario heading
+  const end = Math.min(...headings()
+    .map(heading => md.indexOf(heading, start + scenario.heading.length))
+    .filter(index => index !== -1), md.length)
+  const rest = end < md.length ? `\n${md.slice(end)}` : ''
+  writeFileSync('README.md', md.slice(0, start) + benchmarkMd + rest, 'utf8')
 }
 
 function compareResults (markdown) {
@@ -132,7 +144,7 @@ function compareResults (markdown) {
       bold(beBold, throughput ? (throughput / 1024 / 1024).toFixed(2) : 'N/A')
     ])
   }
-  writeFileSync('benchmark-results.json', JSON.stringify(outputResults), 'utf8')
+  writeFileSync(scenario.resultsFile, JSON.stringify(outputResults), 'utf8')
   return table.toString()
 }
 
@@ -140,7 +152,7 @@ async function compareResultsInteractive () {
   let choices = getAvailableResults()
 
   const firstChoice = await inquirer.prompt([{
-    type: 'list',
+    type: 'select',
     name: 'choice',
     message: 'What\'s your first pick?',
     choices
@@ -149,14 +161,14 @@ async function compareResultsInteractive () {
   choices = choices.filter(choice => choice !== firstChoice.choice)
 
   const secondChoice = await inquirer.prompt([{
-    type: 'list',
+    type: 'select',
     name: 'choice',
     message: 'What\'s your second one?',
     choices
   }])
 
   const [a, b] = [firstChoice.choice, secondChoice.choice]
-  const result = compare(a, b)
+  const result = compare(a, b, resultsPath)
 
   const fastest = chalk.bold.yellow(result.fastest)
   const fastestAverage = chalk.green(result.fastestAverage)
